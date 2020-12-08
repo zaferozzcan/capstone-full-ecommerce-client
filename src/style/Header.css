@@ -1,0 +1,26 @@
+.header-container {
+  background-color: lightblue;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+}
+
+.header-child {
+  /* width: 3rem; */
+  height: 1.5rem;
+}
+
+.header-child .brand-logo {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.header-child .search-bar {
+  width: 20rem;
+}
+
+.header-child .three span {
+  display: block;
+}
