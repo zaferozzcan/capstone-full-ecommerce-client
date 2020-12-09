@@ -17,6 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: -1;
 }
 
 .main-header {
@@ -29,6 +30,7 @@
   padding: 0.7rem;
 }
 
+/* referenced from https://css-tricks.com/snippets/css/typewriter-effect/ */
 .typewriter h1 {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid white; /* The typwriter cursor */

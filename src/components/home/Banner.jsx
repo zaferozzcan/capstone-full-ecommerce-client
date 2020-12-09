@@ -8,7 +8,7 @@ export default function Banner() {
         <h1 className="main-header">Holiday Deals</h1>
         {/* <div className="slogan-header">Spirits, up! Prices, down!</div> */}
         <div className="typewriter slogan-header ">
-          <h1>Spirits, up! Prices, down!!</h1>
+          <h1>Spirits, up! Prices, down!</h1>
         </div>
       </div>
     </div>
