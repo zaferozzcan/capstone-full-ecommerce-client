@@ -3,6 +3,9 @@ import SampleProduct from "../../images/sample-product.jpg";
 import "../../style/Item.css";
 
 export default function Item(props) {
+  function addToCart() {
+    // will dispacth the item to store
+  }
   return (
     <div className="items">
       <img className="item-info" src={SampleProduct} alt="" />
@@ -11,7 +14,9 @@ export default function Item(props) {
         <small>$</small>
         <strong>{props.price}</strong>
       </div>
-      <button className="basket-button">Add To Cart</button>
+      <button onClick={addToCart} className="basket-button">
+        Add To Cart
+      </button>
     </div>
   );
 }
