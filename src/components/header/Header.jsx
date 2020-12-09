@@ -4,11 +4,15 @@ import BrandLogo from "../../images/mzn-logo.png";
 import { BsSearch } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../../Providers/StateProvider";
 
 export default function Header() {
   // add logo
   // searcj bar and other child elements like signin
   // signout button maybe previous order and cart image
+
+  const [{ cart }, dispatch] = useStateValue();
+
   return (
     <div className="header-container">
       {/*logo */}
@@ -42,7 +46,9 @@ export default function Header() {
       <Link to={"/checkout"}>
         <div className="header-child cart">
           <FiShoppingCart size={20} />
-          <span className="cart-item-count">0</span>
+          <span className="cart-item-count">
+            {cart.length ? cart.length : 0}
+          </span>
         </div>
       </Link>
     </div>
