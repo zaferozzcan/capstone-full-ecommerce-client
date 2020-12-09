@@ -23,7 +23,7 @@ export default function Header() {
           id="search-bar"
         />
         <span className="search-icon">
-          <BsSearch />
+          <BsSearch size={20} />
         </span>
       </div>
       {/* signin/signout and greeting*/}
