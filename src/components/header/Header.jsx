@@ -1,6 +1,8 @@
 import React from "react";
 import "../../style/Header.css";
 import BrandLogo from "../../images/mzn-logo.png";
+import { BsSearch } from "react-icons/bs";
+import { FiShoppingCart } from "react-icons/fi";
 
 export default function Header() {
   // add logo
@@ -9,31 +11,34 @@ export default function Header() {
   return (
     <div className="header-container">
       {/*logo */}
-      <div className="header-child one">
-        <img className="brand-logo" src={BrandLogo} alt="brand-logo" />
+      <div className="header-child brand-logo">
+        <img className="brand-logo-item" src={BrandLogo} alt="brand-logo" />
       </div>
       {/* search bar */}
-      <div className="header-child two">
+      <div className="header-child search-bar">
         <input
-          className="search-bar"
+          className="search-bar-item"
           type="text"
           name="serach-bar"
           id="search-bar"
         />
-        <img src="" alt="" />
+        <span className="search-icon">
+          <BsSearch />
+        </span>
       </div>
       {/* signin/signout and greeting*/}
-      <div className="header-child three">
+      <div className="header-child  sign-in">
         <span className="greeting">Hello User</span>
-        <span className="signIn">Sign In</span>
+        <span className="sign-in-item">Sign In</span>
       </div>
       {/* your orders */}
-      <div className="header-child four">
-        <span className="orders"></span>
+      <div className="header-child order">
+        <span className="orders">Your Orders</span>
       </div>
       {/* cart item */}
-      <div className="header-child five">
-        <span>Cart icon</span>
+      <div className="header-child cart">
+        <FiShoppingCart size={20} />
+        <span className="cart-item-count">0</span>
       </div>
     </div>
   );
