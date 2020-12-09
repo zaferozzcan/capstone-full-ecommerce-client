@@ -2,16 +2,20 @@ import React from "react";
 import SampleProduct from "../../images/sample-product.jpg";
 import "../../style/Item.css";
 
-export default function Item() {
+export default function Item(props) {
   return (
     <div className="items">
       <img className="item-info" src={SampleProduct} alt="" />
-      <p>Ninja OS101 Foodi 9-in-1 Pressure Cooker and Air Fryer</p>
+      <p>{props.title}</p>
       <div className="item-inner">
         <small>$</small>
-        <strong>20.99</strong>
+        <strong>{props.price}</strong>
       </div>
-      <button className="basket-button">See More Detail</button>
+      <button className="basket-button">Add To Cart</button>
     </div>
   );
 }
+
+// Array(rating).fill().map((_,i)=>(
+//   <p>⭐️</p>
+// ))

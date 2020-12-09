@@ -1,10 +1,12 @@
 import React from "react";
 import Item from "./Item";
 
-export default function ItemContainer() {
+export default function ItemContainer(props) {
   return (
     <div className="item-container">
-      <Item />
+      <Item price={props.price} title={props.title} />
+      <Item price={props.price} title={props.title} />
+      <Item price={props.price} title={props.title} />
     </div>
   );
 }
