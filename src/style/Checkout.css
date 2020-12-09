@@ -1,0 +1,16 @@
+.checkout-banner {
+  background: rgb(169, 197, 219);
+  background: linear-gradient(
+    5deg,
+    rgba(169, 197, 219, 1) 13%,
+    rgba(58, 127, 196, 1) 51%,
+    rgba(29, 29, 209, 1) 83%
+  );
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
