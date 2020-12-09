@@ -7,6 +7,8 @@
   align-items: center;
   position: sticky;
   cursor: pointer;
+  z-index: 111;
+  box-shadow: 1px 2px 4px lightblue;
 }
 .header-child {
   font-size: 1rem;
@@ -14,7 +16,6 @@
 }
 
 /* brand logo */
-
 .brand-logo-item {
   width: 6rem;
   height: 2rem;
