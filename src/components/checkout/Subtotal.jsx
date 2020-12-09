@@ -23,6 +23,7 @@ export default function Subtotal() {
         thousandSeperator={true}
         prefix={"$"}
       />
+      <button className="checkout-button">Go to Checkout</button>
     </div>
   );
 }
