@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path={"/"} component={Home}>
+        <Route exact path={"/"}>
           <Home />
         </Route>
-        <Route exact path={"/checkout"} component={Checkout}>
+        <Route exact path={"/checkout"}>
           <Checkout />
         </Route>
       </Switch>

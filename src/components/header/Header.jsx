@@ -3,6 +3,7 @@ import "../../style/Header.css";
 import BrandLogo from "../../images/mzn-logo.png";
 import { BsSearch } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   // add logo
@@ -12,7 +13,9 @@ export default function Header() {
     <div className="header-container">
       {/*logo */}
       <div className="header-child brand-logo">
-        <img className="brand-logo-item" src={BrandLogo} alt="brand-logo" />
+        <Link to={"/"}>
+          <img className="brand-logo-item" src={BrandLogo} alt="brand-logo" />
+        </Link>
       </div>
       {/* search bar */}
       <div className="header-child search-bar">
@@ -36,10 +39,12 @@ export default function Header() {
         <span className="orders">Your Orders</span>
       </div>
       {/* cart item */}
-      <div className="header-child cart">
-        <FiShoppingCart size={20} />
-        <span className="cart-item-count">0</span>
-      </div>
+      <Link to={"/checkout"}>
+        <div className="header-child cart">
+          <FiShoppingCart size={20} />
+          <span className="cart-item-count">0</span>
+        </div>
+      </Link>
     </div>
   );
 }
