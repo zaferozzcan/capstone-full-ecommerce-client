@@ -2,6 +2,7 @@ import React from "react";
 import "../../style/Header.css";
 import BrandLogo from "../../images/mzn-logo.png";
 import { BsSearch } from "react-icons/bs";
+import { FiShoppingCart } from "react-icons/fi";
 
 export default function Header() {
   // add logo
@@ -35,8 +36,9 @@ export default function Header() {
         <span className="orders">Your Orders</span>
       </div>
       {/* cart item */}
-      <div className="header-child five">
-        <span>Cart icon</span>
+      <div className="header-child cart">
+        <FiShoppingCart size={20} />
+        <span className="cart-item-count">0</span>
       </div>
     </div>
   );

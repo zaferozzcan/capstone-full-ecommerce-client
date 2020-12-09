@@ -10,6 +10,7 @@
 }
 .header-child {
   font-size: 1rem;
+  font-weight: 700;
 }
 
 /* brand logo */
@@ -27,7 +28,6 @@
   flex: 0.7;
   justify-content: center;
   align-items: center;
-  border-radius: 1rem;
 }
 .search-bar-item {
   width: 100%;
@@ -48,13 +48,21 @@
   flex-direction: column;
   margin: 0 10px 0 10px;
 }
+.greeting {
+  font-size: 0.6rem;
+  font-weight: 400;
+}
 
 /* four */
 .order {
   margin-right: 2px;
 }
-/* cart icon  the last child of search  */
 
-.header-child .five span {
-  margin-right: 0.5rem;
+.cart {
+  display: flex;
+  align-items: center;
+}
+.cart-item-count {
+  margin-left: 10px;
+  margin-right: 10px;
 }
