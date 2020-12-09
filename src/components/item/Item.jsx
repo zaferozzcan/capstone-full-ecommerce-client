@@ -1,10 +1,22 @@
 import React from "react";
 import SampleProduct from "../../images/sample-product.jpg";
 import "../../style/Item.css";
+import { useStateValue } from "../../Providers/StateProvider";
 
 export default function Item(props) {
+  const [{ cart }, dispatch] = useStateValue();
+  console.log("this is cart", cart);
   function addToCart() {
-    // will dispacth the item to store
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: 0,
+        title: props.title,
+        image: "",
+        price: props.price,
+        rating: "",
+      },
+    });
   }
   return (
     <div className="items">
