@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Accordion, Card, Button } from "react-bootstrap";
+import { Accordion, Card, Button, Table } from "react-bootstrap";
 import "../../style/Payment.css";
 import { useStateValue } from "../../Providers/StateProvider";
 
@@ -46,16 +46,38 @@ export default function Accord() {
             </Card.Header>
             <Accordion.Collapse eventKey="2">
               <Card.Body>
-                {cart.length === 0
-                  ? "There is no item in the cart"
-                  : cart.map((item) => {
-                      return (
-                        <>
-                          {item.title} --{item.price}{" "}
-                          <button className="accordion-remove-button">X</button>
-                        </>
-                      );
-                    })}
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Price</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  {cart.length === 0
+                    ? "There is no item in the cart"
+                    : cart.map((item, index) => {
+                        return (
+                          <>
+                            <tbody>
+                              <tr>
+                                <td>{item.title}</td>
+                                <td>{item.price}</td>
+                                <td>
+                                  {" "}
+                                  <button
+                                    onClick={() => handleRemove(item.id)}
+                                    className="accordion-remove-button"
+                                  >
+                                    X
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </>
+                        );
+                      })}
+                </Table>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
