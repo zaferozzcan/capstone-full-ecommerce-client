@@ -34,10 +34,12 @@ export default function Header() {
         </span>
       </div>
       {/* signin/signout and greeting*/}
-      <div className="header-child  sign-in">
-        <span className="greeting">Hello User</span>
-        <span className="sign-in-item">Sign In</span>
-      </div>
+      <Link to={"/signin"}>
+        <div className="header-child  sign-in">
+          <span className="greeting">Hello User</span>
+          <span className="sign-in-item">Sign In</span>
+        </div>
+      </Link>
       {/* your orders */}
       <div className="header-child order">
         <span className="orders">Your Orders</span>
