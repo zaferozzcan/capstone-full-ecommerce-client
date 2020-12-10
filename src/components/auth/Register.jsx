@@ -25,7 +25,7 @@ export default function SignIn() {
 
   return (
     <div className="signin-container">
-      <h5>Sign In </h5>
+      <h5>Sign Up </h5>
       <Form>
         <Form.Group controlId="Name">
           <Form.Label>Customer Name</Form.Label>
@@ -63,9 +63,6 @@ export default function SignIn() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button onClick={handleSubmitSignIn} variant="primary" type="submit">
-          SignIn
-        </Button>
         <Button onClick={handleRegister} variant="success" type="submit">
           Register
         </Button>
@@ -74,10 +71,6 @@ export default function SignIn() {
             Cancel
           </Button>
         </Link>
-        <Form.Text className="text-muted">
-          Are you new around here?
-          <Link to={"/register"}>Register</Link>
-        </Form.Text>
       </Form>
     </div>
   );

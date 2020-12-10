@@ -11,12 +11,12 @@ export default function SignIn() {
   //   console.log("email", email, "password", password);
 
   const handleSubmitSignIn = (e) => {
-    console.log("inside login");
+    // console.log("inside login");
     e.preventDefault();
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        console.log("auth", auth);
+        // console.log("auth", auth);
         history.push("/");
       })
       .catch((error) => alert(error.message));
@@ -57,9 +57,6 @@ export default function SignIn() {
         </Form.Group>
         <Button onClick={handleSubmitSignIn} variant="primary" type="submit">
           SignIn
-        </Button>
-        <Button onClick={handleRegister} variant="success" type="submit">
-          Register
         </Button>
         <Link to={"/"}>
           <Button variant="danger" type="submit">
