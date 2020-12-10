@@ -6,25 +6,15 @@ import { auth } from "../../firebase";
 
 export default function SignIn() {
   const history = useHistory();
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   //   console.log("email", email, "password", password);
 
-  const handleSubmitSignIn = (e) => {
-    console.log("inside login");
-    e.preventDefault();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
-        console.log("auth", auth);
-        history.push("/");
-      })
-      .catch((error) => alert(error.message));
-  };
-
   const handleRegister = () => {
     auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(name, lastName, email, password)
       .then((auth) => {
         if (auth) {
           history.push("/");
@@ -37,6 +27,24 @@ export default function SignIn() {
     <div className="signin-container">
       <h5>Sign In </h5>
       <Form>
+        <Form.Group controlId="Name">
+          <Form.Label>Customer Name</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            placeholder="Customer Name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group controlId="Lastname">
+          <Form.Label>Lastname</Form.Label>
+          <Form.Control
+            type="text"
+            name="Lastname"
+            placeholder="Lastname"
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </Form.Group>
         <Form.Group controlId="Email">
           <Form.Label>Email address</Form.Label>
           <Form.Control
