@@ -8,11 +8,11 @@ export default function Home() {
       <div className="home-container-inner">
         <Banner />
         <ItemContainer
-          price={25.99}
+          price={20}
           title={"Wyze Cam 1080p HD Indoor Wireless Smart Home Camera"}
         />
         <ItemContainer
-          price={15.99}
+          price={15}
           title={"Echo Dot (3rd Gen) - Smart speaker with Alexa"}
         />
         <ItemContainer

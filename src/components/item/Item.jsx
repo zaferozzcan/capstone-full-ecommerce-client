@@ -5,7 +5,6 @@ import { useStateValue } from "../../Providers/StateProvider";
 
 export default function Item(props) {
   const [{ cart }, dispatch] = useStateValue();
-  console.log("this is cart", cart);
   function addToCart() {
     dispatch({
       type: "ADD_TO_BASKET",
