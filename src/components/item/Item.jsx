@@ -7,9 +7,9 @@ export default function Item(props) {
   const [{ cart }, dispatch] = useStateValue();
   function addToCart() {
     dispatch({
-      type: "ADD_TO_BASKET",
+      type: "ADD_ITEM",
       item: {
-        id: 0,
+        id: props.id,
         title: props.title,
         image: "",
         price: props.price,
