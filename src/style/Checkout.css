@@ -27,10 +27,10 @@
   flex-direction: column;
   justify-content: space-between;
   width: 290px;
-  height: 90px;
+  height: 150px;
   padding: 20px;
   background-color: white;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 3px;
 }
 

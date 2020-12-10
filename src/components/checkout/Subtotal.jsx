@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../Providers/StateProvider";
 
 export default function Subtotal() {
+  const history = useHistory();
   const [{ cart }, dispatch] = useStateValue();
   const total = cart.reduce((acc, item) => item.price + acc, 0);
   return (
@@ -14,7 +16,12 @@ export default function Subtotal() {
         <input type="checkbox" />
         This is a gift
       </small>
-      <button className="checkout-button">Go to Checkout</button>
+      <button
+        onClick={(e) => history.push("/payment")}
+        className="checkout-button"
+      >
+        Go to Checkout
+      </button>
     </div>
   );
 }
