@@ -13,7 +13,7 @@ export default function Header() {
   // signout button maybe previous order and cart image
   const history = useHistory();
   const [{ user, cart }, dispatch] = useStateValue();
-  console.log("this is user from reducers", user);
+  // console.log("this is user from reducers", user);
   function authHandler() {
     if (user) {
       auth.signOut();

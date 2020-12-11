@@ -14,7 +14,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { CcModal } from "./components/checkout/CcModal";
 
-const promise = loadStripe(
+const stripePromise = loadStripe(
   "pk_test_51HwwtFIiGEr9G3vir61e9L9f7CiuVUbckThzfjo8VVapT7Gi4ZxAcQdw57AxQxHE7pXYOoM2mqgrpyLiszOdRLtm00w9quzvcz"
 );
 
@@ -39,11 +39,11 @@ function App() {
     });
   }, []);
 
-  console.log("modal", modal);
+  // console.log("modal", modal);
   return (
     <div className="App">
       {modal && (
-        <Elements stripe={promise}>
+        <Elements stripe={stripePromise}>
           <CcModal />
         </Elements>
       )}
@@ -65,7 +65,7 @@ function App() {
         </Route>
         <Route exact path={"/payment"}>
           <Header />
-          <Elements stripe={promise}>
+          <Elements stripe={stripePromise}>
             <Payment />
           </Elements>
         </Route>

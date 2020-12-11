@@ -40,6 +40,11 @@ const reducer = (state, action) => {
         ...state,
         modal: action.modal,
       };
+    case "ADD_CC":
+      return {
+        ...state,
+        card: action.card,
+      };
     default:
       return state;
   }

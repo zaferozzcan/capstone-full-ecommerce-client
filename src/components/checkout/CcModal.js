@@ -17,29 +17,43 @@ export function CcModal() {
   const [clientSecret, setClientSecret] = useState(true);
 
   function handleSubmit(event) {
+    console.log("onsubmit");
     event.preventDefault();
+    // console.log("submit card", elements.getElement(CardElement));
   }
 
   function handleChange(event) {
+    // Listen for changes in the CardElement
+    // and display any errors as the customer types their card details
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   }
-
   function closeModal() {
     dispatch({
       type: "CLOSE_MODAL",
       modal: false,
     });
   }
-  console.log("disabled", processing);
+
+  function addCcInfo() {
+    console.log("cc info send");
+    dispatch({
+      type: "ADD_CC",
+      card: elements.getElement(CardElement),
+    });
+  }
 
   return (
     <div>
       <div id="modal">
         <div id="modal-textbox">
           <h1>Add Credit Cart</h1>
-          <form>
-            <CardElement />
+          <form onSubmit={handleSubmit}>
+            <CardElement onChange={handleChange} />
+            <button onClick={addCcInfo} type="submit">
+              {" "}
+              Ok{" "}
+            </button>
           </form>
 
           <div id="modal-footer">
