@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import { useHistory, Link } from "react-router-dom";
 import { useStateValue } from "../../Providers/StateProvider";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 
 export default function AccordPayment() {
@@ -36,8 +36,8 @@ export default function AccordPayment() {
           card: card,
         },
       })
-      .then((/*{ paymentIntent }*/ res) => {
-        console.log("payment has been completed", res);
+      .then(({ paymentIntent }) => {
+        console.log("payment has been completed");
 
         setSucceeded(true);
         console.log("succeed true!");
