@@ -1,9 +1,10 @@
 import React from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { useStateValue } from "../../Providers/StateProvider";
+import { auth } from "../../firebase";
 
 export default function CheckoutLeft() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart, user }, dispatch] = useStateValue();
 
   function removeItem(id) {
     // console.log("item id", id);
@@ -15,7 +16,8 @@ export default function CheckoutLeft() {
   // console.log("cart", cart);
   return (
     <div className="checkout-left">
-      <h3 className="checkout-header">Your Items</h3>
+      <h2>Hello, {user && user.email}</h2>
+      <h3 className="checkout-header">Checkout Your Items</h3>
       {cart.map((item, index) => {
         return (
           <div key={index} style={{ border: "1px solid black", width: "80%" }}>

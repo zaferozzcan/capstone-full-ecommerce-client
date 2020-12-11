@@ -1,14 +1,53 @@
+import React, { useEffect } from "react";
 import "../src/style/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import Checkout from "./components/checkout/Checkout";
 import SignIn from "./components/auth/SignIn";
+import Register from "./components/auth/Register";
+import Payment from "./components/checkout/Payment";
 import { Switch, Route } from "react-router-dom";
+import { auth } from "./firebase";
+import { useStateValue } from "./Providers/StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { CcModal } from "./components/checkout/CcModal";
+
+const stripePromise = loadStripe(
+  "pk_test_51HwwtFIiGEr9G3vir61e9L9f7CiuVUbckThzfjo8VVapT7Gi4ZxAcQdw57AxQxHE7pXYOoM2mqgrpyLiszOdRLtm00w9quzvcz"
+);
 
 function App() {
+  const [{ modal }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      // console.log("user ", authUser);
+
+      if (authUser) {
+        dispatch({
+          type: "LOGIN_USER",
+          user: authUser,
+        });
+      } else {
+        dispatch({
+          type: "LOGIN_USER",
+          user: null,
+        });
+      }
+    });
+  }, []);
+
+  // console.log("modal", modal);
   return (
     <div className="App">
+      {modal && (
+        <Elements stripe={stripePromise}>
+          <CcModal />
+        </Elements>
+      )}
+
       <Switch>
         <Route exact path={"/"}>
           <Header />
@@ -20,6 +59,15 @@ function App() {
         </Route>
         <Route exact path={"/signin"}>
           <SignIn />
+        </Route>
+        <Route exact path="/register">
+          <Register />
+        </Route>
+        <Route exact path={"/payment"}>
+          <Header />
+          <Elements stripe={stripePromise}>
+            <Payment />
+          </Elements>
         </Route>
       </Switch>
     </div>

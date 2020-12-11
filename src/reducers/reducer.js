@@ -24,6 +24,32 @@ const reducer = (state, action) => {
         ...state,
         cart: newCart,
       };
+    case "LOGIN_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
+
+    case "SHOW_MODAL":
+      return {
+        ...state,
+        modal: action.modal,
+      };
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        modal: action.modal,
+      };
+    case "ADD_CC":
+      return {
+        ...state,
+        card: action.card,
+      };
+    case "EMPTY_CART":
+      return {
+        ...state,
+        cart: [],
+      };
     default:
       return state;
   }

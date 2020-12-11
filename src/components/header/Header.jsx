@@ -3,16 +3,23 @@ import "../../style/Header.css";
 import BrandLogo from "../../images/mzn-logo.png";
 import { BsSearch } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useStateValue } from "../../Providers/StateProvider";
+import { auth } from "../../firebase";
 
 export default function Header() {
   // add logo
   // searcj bar and other child elements like signin
   // signout button maybe previous order and cart image
-
-  const [{ cart }, dispatch] = useStateValue();
-
+  const history = useHistory();
+  const [{ user, cart }, dispatch] = useStateValue();
+  // console.log("this is user from reducers", user);
+  function authHandler() {
+    if (user) {
+      auth.signOut();
+      history.push("/");
+    }
+  }
   return (
     <div className="header-container">
       {/*logo */}
@@ -35,9 +42,14 @@ export default function Header() {
       </div>
       {/* signin/signout and greeting*/}
       <Link to={"/signin"}>
-        <div className="header-child  sign-in">
-          <span className="greeting">Hello User</span>
-          <span className="sign-in-item">Sign In</span>
+        <div onClick={authHandler} className="header-child  sign-in">
+          <span className="greeting">Hello {user && user.email}</span>
+
+          {user ? (
+            <span className="sign-in-item">Sign Out</span>
+          ) : (
+            <span className="sign-in-item">Sign In</span>
+          )}
         </div>
       </Link>
       {/* your orders */}
