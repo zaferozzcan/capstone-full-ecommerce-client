@@ -27,39 +27,29 @@ export default function AccordPayment() {
   }, [cart, total]);
 
   const handleSubmit = async (event) => {
-    console.log("handle submit");
+    console.log("hadlesubmit");
     event.preventDefault();
 
-    const payload = await stripe
+    await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
         },
       })
-      .then(({ paymentIntent }) => {
-        console.log("payment has been completed");
-
-        // db.collection("users")
-        //   .doc(user?.uid)
-        //   .collection("orders")
-        //   .doc(paymentIntent.id)
-        //   .set({
-        //     basket: basket,
-        //     amount: paymentIntent.amount,
-        //     created: paymentIntent.created,
-        //   });
+      .then((/*{ paymentIntent }*/ res) => {
+        console.log("payment has been completed", res);
 
         setSucceeded(true);
         console.log("succeed true!");
-        // setError(null);
-        // setProcessing(false);
-
-        dispatch({
-          type: "EMPTY_BASKET",
-        });
-        history.replace("/");
       });
   };
+
+  function handleClick() {
+    dispatch({
+      type: "EMPTY_CART",
+    });
+    history.replace("/");
+  }
 
   // console.log("card", card);
   return (
@@ -70,11 +60,11 @@ export default function AccordPayment() {
           <Card.Text>Subtotal:{total}</Card.Text>
           <Card.Text>Tax</Card.Text>
           <Card.Text>Fee:{total}</Card.Text>
-          <Link to={"/orders"}>
-            <Button type="submit" onClick={handleSubmit} variant="primary">
+          <form onSubmit={handleSubmit}>
+            <Button onClick={handleClick} type="button" variant="primary">
               Complete Purchase
             </Button>
-          </Link>
+          </form>
         </Card.Body>
       </Card>
     </div>
