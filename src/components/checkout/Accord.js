@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Accordion, Card, Button, Table } from "react-bootstrap";
 import "../../style/Payment.css";
 import { useStateValue } from "../../Providers/StateProvider";
+// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+// import CcModal from "./CcModal";
 
 export default function Accord() {
-  const [{ cart, user }, dispatch] = useStateValue();
-  console.log("cart in accord", cart);
+  const [{ cart }, dispatch] = useStateValue();
+  // const stripe = useStripe();
+  // const elements = useElements();
+  // console.log("cart in accord", cart);
   function handleRemove(id) {
     dispatch({ type: "REMOVE_ITEM", id: id });
   }
+  function openModal() {
+    dispatch({
+      type: "SHOW_MODAL",
+      modal: true,
+    });
+  }
+
   return (
     <div className="accord">
       <br></br>
       <Link>
-        <h4 className="Accord-heading">Checkout Your Items, {user.email}</h4>
+        <h4 className="Accord-heading">
+          {cart.length >= 1
+            ? `Checkout your ${cart.length} item`
+            : "You dont have any item in your cart"}
+        </h4>
       </Link>
       <div className="payment-container">
         <Accordion defaultActiveKey="0">
@@ -34,8 +49,14 @@ export default function Accord() {
                 Payment Method
               </Accordion.Toggle>
             </Card.Header>
+
             <Accordion.Collapse eventKey="1">
-              <Card.Body>Visa ending 2222</Card.Body>
+              {/* <form>
+                <CardElement />
+              </form> */}
+              <Card.Body>
+                Visa ending 2222 <button onClick={openModal}>change</button>
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>

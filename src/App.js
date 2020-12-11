@@ -10,9 +10,16 @@ import Payment from "./components/checkout/Payment";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import { useStateValue } from "./Providers/StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import { CcModal } from "./components/checkout/CcModal";
+
+const promise = loadStripe(
+  "pk_test_51HwwtFIiGEr9G3vir61e9L9f7CiuVUbckThzfjo8VVapT7Gi4ZxAcQdw57AxQxHE7pXYOoM2mqgrpyLiszOdRLtm00w9quzvcz"
+);
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [{ modal }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -32,8 +39,15 @@ function App() {
     });
   }, []);
 
+  console.log("modal", modal);
   return (
     <div className="App">
+      {modal && (
+        <Elements stripe={promise}>
+          <CcModal />
+        </Elements>
+      )}
+
       <Switch>
         <Route exact path={"/"}>
           <Header />
@@ -51,7 +65,9 @@ function App() {
         </Route>
         <Route exact path={"/payment"}>
           <Header />
-          <Payment />
+          <Elements stripe={promise}>
+            <Payment />
+          </Elements>
         </Route>
       </Switch>
     </div>

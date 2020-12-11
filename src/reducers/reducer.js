@@ -29,6 +29,17 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
+
+    case "SHOW_MODAL":
+      return {
+        ...state,
+        modal: action.modal,
+      };
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        modal: action.modal,
+      };
     default:
       return state;
   }

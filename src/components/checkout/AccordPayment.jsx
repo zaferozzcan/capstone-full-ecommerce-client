@@ -1,11 +1,14 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useStateValue } from "../../Providers/StateProvider";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 export default function AccordPayment() {
   const [{ cart, user }, dispatch] = useStateValue();
-
+  const stripe = useStripe();
+  const elements = useElements();
   const total = cart.reduce((acc, item) => item.price + acc, 0);
+
   return (
     <div className="accord-payment-container">
       <Card className="text-center">

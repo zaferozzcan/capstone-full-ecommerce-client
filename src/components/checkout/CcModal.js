@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useStateValue } from "../../Providers/StateProvider";
 
 import "../../style/CcModal.css";
 
 export function CcModal() {
+  const [{ modal }, dispatch] = useStateValue();
+
   const stripe = useStripe();
   const elements = useElements();
+
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState("");
   const [error, setError] = useState(null);
@@ -17,23 +21,29 @@ export function CcModal() {
   }
 
   function handleChange(event) {
-    // Listen for changes in the CardElement
-    // and display any errors as the customer types their card details
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   }
+
+  function closeModal() {
+    dispatch({
+      type: "CLOSE_MODAL",
+      modal: false,
+    });
+  }
+  console.log("disabled", processing);
 
   return (
     <div>
       <div id="modal">
         <div id="modal-textbox">
           <h1>Add Credit Cart</h1>
-          <form onSubmit={handleSubmit}>
-            <CardElement onChange={handleChange} />
+          <form>
+            <CardElement />
           </form>
 
           <div id="modal-footer">
-            <button>Close</button>
+            <button onClick={closeModal}>Close</button>
           </div>
         </div>
       </div>
