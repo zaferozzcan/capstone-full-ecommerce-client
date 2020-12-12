@@ -7,6 +7,7 @@ import Checkout from "./components/checkout/Checkout";
 import SignIn from "./components/auth/SignIn";
 import Register from "./components/auth/Register";
 import Payment from "./components/checkout/Payment";
+import Orders from "./components/orders/Orders";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import { useStateValue } from "./Providers/StateProvider";
@@ -68,6 +69,10 @@ function App() {
           <Elements stripe={stripePromise}>
             <Payment />
           </Elements>
+        </Route>
+        <Route exact path={"/orders"}>
+          <Header />
+          <Orders />
         </Route>
       </Switch>
     </div>

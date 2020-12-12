@@ -6,28 +6,30 @@ import { auth } from "../../firebase";
 
 export default function SignIn() {
   const history = useHistory();
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  // const [name, setName] = useState("");
+  // const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   //   console.log("email", email, "password", password);
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
+
     auth
-      .createUserWithEmailAndPassword(name, lastName, email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         if (auth) {
+          console.log(auth);
           history.push("/");
         }
       })
       .catch((err) => console.log(err));
   };
-
   return (
     <div className="signin-container">
       <h5>Sign Up </h5>
       <Form>
-        <Form.Group controlId="Name">
+        {/* <Form.Group controlId="Name">
           <Form.Label>Customer Name</Form.Label>
           <Form.Control
             type="text"
@@ -44,7 +46,7 @@ export default function SignIn() {
             placeholder="Lastname"
             onChange={(e) => setLastName(e.target.value)}
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group controlId="Email">
           <Form.Label>Email address</Form.Label>
           <Form.Control

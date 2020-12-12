@@ -22,17 +22,6 @@ export default function SignIn() {
       .catch((error) => alert(error.message));
   };
 
-  const handleRegister = () => {
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((err) => console.log(err));
-  };
-
   return (
     <div className="signin-container">
       <h5>Sign In </h5>
