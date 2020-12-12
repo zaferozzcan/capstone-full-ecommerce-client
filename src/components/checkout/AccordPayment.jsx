@@ -32,14 +32,18 @@ export default function AccordPayment() {
     console.log("hadlesubmit");
     event.preventDefault();
 
+    const paymentMethodReq = await stripe.createPaymentMethod({
+      type: "card",
+      card: card,
+      billing_details: "",
+    });
+
     const pay = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: card,
-      },
+      payment_method: paymentMethodReq.paymentMethod.id,
     });
     console.log("pay", pay);
   };
-
+  console.log("client sectret", clientSecret);
   function handleClick() {
     try {
       axios({
@@ -65,7 +69,7 @@ export default function AccordPayment() {
     history.replace("/");
   }
 
-  console.log("cart", cart);
+  console.log("card", card);
   console.log("paymentIntend", paymentIntent);
   return (
     <div className="accord-payment-container">

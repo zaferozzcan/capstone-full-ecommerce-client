@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
 import { useStateValue } from "../../Providers/StateProvider";
 
@@ -6,9 +6,9 @@ import "../../style/CcModal.css";
 
 export function CcModal() {
   const [{}, dispatch] = useStateValue();
+  const [card, setCard] = useState("");
 
   const elements = useElements();
-
   function handleSubmit(event) {
     console.log("onsubmit");
     event.preventDefault();
@@ -26,8 +26,12 @@ export function CcModal() {
     console.log("cc info send");
     dispatch({
       type: "ADD_CC",
-      card: elements.getElement(CardElement),
+      card: elements.getElement("card"),
     });
+  }
+
+  function handleChange(e) {
+    console.log("elements", elements.getElement("card"));
   }
 
   return (
@@ -36,7 +40,7 @@ export function CcModal() {
         <div id="modal-textbox">
           <h1>Add Credit Cart</h1>
           <form onSubmit={handleSubmit}>
-            <CardElement />
+            <CardElement onChange={handleChange} />
             <button onClick={addCcInfo} type="submit">
               {" "}
               Ok{" "}

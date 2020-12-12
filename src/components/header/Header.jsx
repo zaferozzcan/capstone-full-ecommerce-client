@@ -3,7 +3,7 @@ import "../../style/Header.css";
 import BrandLogo from "../../images/mzn-logo.png";
 import { BsSearch } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, NavLink } from "react-router-dom";
 import { useStateValue } from "../../Providers/StateProvider";
 import { auth } from "../../firebase";
 
@@ -53,9 +53,11 @@ export default function Header() {
         </div>
       </Link>
       {/* your orders */}
-      <div className="header-child order">
-        <span className="orders">Your Orders</span>
-      </div>
+      <NavLink to={"/orders"}>
+        <div className="header-child">
+          <span className="header-orders">Your Orders</span>
+        </div>
+      </NavLink>
       {/* cart item */}
       <Link to={"/checkout"}>
         <div className="header-child cart">
