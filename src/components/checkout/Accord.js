@@ -3,14 +3,9 @@ import { Link } from "react-router-dom";
 import { Accordion, Card, Button, Table } from "react-bootstrap";
 import "../../style/Payment.css";
 import { useStateValue } from "../../Providers/StateProvider";
-// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-// import CcModal from "./CcModal";
 
 export default function Accord() {
   const [{ cart }, dispatch] = useStateValue();
-  // const stripe = useStripe();
-  // const elements = useElements();
-  // console.log("cart in accord", cart);
   function handleRemove(id) {
     dispatch({ type: "REMOVE_ITEM", id: id });
   }
@@ -51,9 +46,6 @@ export default function Accord() {
             </Card.Header>
 
             <Accordion.Collapse eventKey="1">
-              {/* <form>
-                <CardElement />
-              </form> */}
               <Card.Body>
                 Visa ending 2222 <button onClick={openModal}>change</button>
               </Card.Body>
