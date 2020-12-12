@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   GoogleMap,
@@ -8,6 +8,9 @@ import {
 } from "@react-google-maps/api";
 
 export default function UserAddress() {
+  const [selectedLoc, setSelectedLoc] = useState([]);
+
+  // map props
   const libraries = ["places"];
   const mapContainerStyle = {
     width: "100vw",
@@ -24,9 +27,21 @@ export default function UserAddress() {
 
   if (loadError) return "There is an error when loading maps";
   if (!isLoaded) return "Loading Maps";
+
+  console.log(selectedLoc);
   return (
     <div>
-      <GoogleMap mapContainerStyle={mapContainerStyle} zoom={5} center={center}>
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        zoom={5}
+        center={center}
+        onClick={(e) => {
+          setSelectedLoc({
+            lat: e.latLng.lat(),
+            lng: e.latLng.lng(),
+          });
+        }}
+      >
         {" "}
       </GoogleMap>
     </div>
