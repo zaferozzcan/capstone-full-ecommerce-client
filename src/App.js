@@ -14,6 +14,7 @@ import { useStateValue } from "./Providers/StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { CcModal } from "./components/checkout/CcModal";
+import UserAddress from "./components/UserAddress/UserAddress.jsx";
 
 const stripePromise = loadStripe(
   "pk_test_51HwwtFIiGEr9G3vir61e9L9f7CiuVUbckThzfjo8VVapT7Gi4ZxAcQdw57AxQxHE7pXYOoM2mqgrpyLiszOdRLtm00w9quzvcz"
@@ -73,6 +74,9 @@ function App() {
         <Route exact path={"/orders"}>
           <Header />
           <Orders />
+        </Route>
+        <Route exact path={"/useraddress"}>
+          <UserAddress />
         </Route>
       </Switch>
     </div>
