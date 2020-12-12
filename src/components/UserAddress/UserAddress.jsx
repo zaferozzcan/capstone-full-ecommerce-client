@@ -28,7 +28,7 @@ export default function UserAddress() {
   if (loadError) return "There is an error when loading maps";
   if (!isLoaded) return "Loading Maps";
 
-  console.log(selectedLoc);
+  //   console.log(selectedLoc);
   return (
     <div>
       <GoogleMap
@@ -43,6 +43,9 @@ export default function UserAddress() {
         }}
       >
         {" "}
+        {selectedLoc && (
+          <Marker position={{ lat: selectedLoc.lat, lng: selectedLoc.lng }} />
+        )}
       </GoogleMap>
     </div>
   );
