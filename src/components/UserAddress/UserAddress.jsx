@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useRef } from "react";
 
 import {
   GoogleMap,
@@ -9,6 +9,17 @@ import {
 
 export default function UserAddress() {
   const [selectedLoc, setSelectedLoc] = useState([]);
+  const clickOnMap = useCallback((e) => {
+    setSelectedLoc({
+      lat: e.latLng.lat(),
+      lng: e.latLng.lng(),
+    });
+  }, []);
+
+  const mapRef = useRef();
+  const LoadOnMap = useCallback((map) => {
+    mapRef.current = map;
+  }, []);
 
   // map props
   const libraries = ["places"];
@@ -35,12 +46,8 @@ export default function UserAddress() {
         mapContainerStyle={mapContainerStyle}
         zoom={5}
         center={center}
-        onClick={(e) => {
-          setSelectedLoc({
-            lat: e.latLng.lat(),
-            lng: e.latLng.lng(),
-          });
-        }}
+        onClick={clickOnMap}
+        onLoad={LoadOnMap}
       >
         {" "}
         {selectedLoc && (
