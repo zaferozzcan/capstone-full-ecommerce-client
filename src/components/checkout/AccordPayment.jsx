@@ -13,6 +13,7 @@ export default function AccordPayment() {
 
   const [succeeded, setSucceeded] = useState(false);
   const [clientSecret, setClientSecret] = useState(true);
+  const [paymentIntent, setPaymentIntent] = useState({});
 
   useEffect(() => {
     const getClientSecret = async () => {
@@ -20,8 +21,9 @@ export default function AccordPayment() {
         method: "post",
         url: `http://localhost:5000/card/payments/create?total=${total * 100}`,
       });
-      console.log("response secret key", response.data.clientSecret);
-      setClientSecret(response.data.clientSecret);
+
+      setClientSecret(response.data.paymentIntent.client_secret);
+      setPaymentIntent(response.data.paymentIntent);
     };
     getClientSecret();
   }, [cart, total]);
@@ -30,28 +32,41 @@ export default function AccordPayment() {
     console.log("hadlesubmit");
     event.preventDefault();
 
-    await stripe
-      .confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-        },
-      })
-      .then(({ paymentIntent }) => {
-        console.log("payment has been completed");
-
-        setSucceeded(true);
-        console.log("succeed true!");
-      });
+    const pay = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+      },
+    });
+    console.log("pay", pay);
   };
 
   function handleClick() {
+    try {
+      axios({
+        method: "post",
+        url: "http://localhost:5000/order",
+        data: {
+          user_id: user.uid,
+          user_email: user.email,
+          user_addres: "11 Moseley Street",
+          user_city: "Boston",
+          user_zip: "02125",
+          user_state: "MA",
+          orders: cart,
+        },
+      });
+    } catch (err) {
+      console.log("order send to data err", err);
+    }
+
     dispatch({
       type: "EMPTY_CART",
     });
     history.replace("/");
   }
 
-  // console.log("card", card);
+  console.log("cart", cart);
+  console.log("paymentIntend", paymentIntent);
   return (
     <div className="accord-payment-container">
       <Card className="text-center">
