@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -19,10 +19,11 @@ import {
 } from "@react-google-maps/api";
 
 // // // // // // // // referenced from https://www.npmjs.com/package/use-places-autocomplete
-
+const libraries = ["places"];
 export default function AddressSearch() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_API_KEY,
+    googleMapsApiKey: ,
+    libraries,
   });
   const {
     ready,
@@ -52,8 +53,8 @@ export default function AddressSearch() {
         />
         <ComboboxPopover>
           {status === "OK" &&
-            data.map(({ id, desc }) => (
-              <ComboboxOption key={id} value={desc} />
+            data.map(({ id, description }) => (
+              <ComboboxOption key={id} value={description} />
             ))}
         </ComboboxPopover>
       </Combobox>

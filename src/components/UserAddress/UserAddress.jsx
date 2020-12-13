@@ -1,12 +1,7 @@
 import React, { useState, useCallback, useRef } from "react";
+import usePlacesAutocomplete from "use-places-autocomplete";
 
-import {
-  GoogleMap,
-  useLoadScript,
-  Marker,
-  InfoWindow,
-} from "@react-google-maps/api";
-import AddressSearch from "./AddressSearch";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 export default function UserAddress() {
   const [selectedLoc, setSelectedLoc] = useState([]);
@@ -43,6 +38,7 @@ export default function UserAddress() {
   //   console.log(selectedLoc);
   return (
     <div>
+      {/* <Seach /> */}
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={5}
@@ -58,3 +54,14 @@ export default function UserAddress() {
     </div>
   );
 }
+
+// function Seach() {
+//   const { ready } = usePlacesAutocomplete({
+//     requestOptions: {
+//       location: { lat: () => 42.2413, lng: () => -71.01809 },
+//       radius: 100 * 1000,
+//     },
+//   });
+//   console.log("ready in maps", ready);
+//   return <div>The search bar</div>;
+// }
