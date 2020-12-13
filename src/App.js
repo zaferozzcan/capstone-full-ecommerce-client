@@ -21,7 +21,7 @@ const stripePromise = loadStripe(
 );
 
 function App() {
-  const [{ modal }, dispatch] = useStateValue();
+  const [{ modal, address }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -42,6 +42,7 @@ function App() {
   }, []);
 
   // console.log("modal", modal);
+  console.log("address in appjs", address);
   return (
     <div className="App">
       {modal && (

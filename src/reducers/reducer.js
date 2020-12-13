@@ -50,6 +50,11 @@ const reducer = (state, action) => {
         ...state,
         cart: [],
       };
+    case "ADD_CURRENT_LOCATION":
+      return {
+        ...state,
+        address: action.address,
+      };
     default:
       return state;
   }

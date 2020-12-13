@@ -1,4 +1,5 @@
 import React from "react";
+import { useStateValue } from "../../Providers/StateProvider";
 // import "../../style/AddressSearch";
 import usePlacesAutoComplete, {
   getGeocode,
@@ -23,7 +24,7 @@ import {
 const libraries = ["places"];
 export default function AddressSearch() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: ,
+    googleMapsApiKey: process.env.GOOGLE_API_KEY,
     libraries,
   });
   const {
@@ -39,6 +40,7 @@ export default function AddressSearch() {
     },
   });
 
+  const [{ address }, dispatch] = useStateValue();
   console.log("isloaded", isLoaded);
   console.log("ready ", ready);
   return (
@@ -46,9 +48,15 @@ export default function AddressSearch() {
       <Combobox
         onSelect={async (address) => {
           try {
+            setValue(address, false);
+            clearSuggestions();
             const results = await getGeocode({ address });
             const { lat, lng } = await getLatLng(results[0]);
             console.log(lat, lng);
+            dispatch({
+              type: "ADD_CURRENT_LOCATION",
+              address: value,
+            });
           } catch (err) {
             console.log(err);
           }
@@ -62,7 +70,7 @@ export default function AddressSearch() {
           disabled={!ready}
           placeholder="Search Your Address"
         />
-        <ComboboxPopover>
+        <ComboboxPopover style={{ backgroundColor: "skyblue" }}>
           {status === "OK" &&
             data.map(({ id, description }) => (
               <ComboboxOption key={id} value={description} />

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
-import usePlacesAutocomplete from "use-places-autocomplete";
+import { useStateValue } from "../../Providers/StateProvider";
 
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
@@ -32,10 +32,13 @@ export default function UserAddress() {
     lng: -97,
   };
 
+  const [{ address }, dispatch] = useStateValue();
+
   if (loadError) return "There is an error when loading maps";
   if (!isLoaded) return "Loading Maps";
 
   //   console.log(selectedLoc);
+  console.log("addeess in useradd", address);
   return (
     <div>
       {/* <Seach /> */}
