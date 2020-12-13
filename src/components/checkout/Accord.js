@@ -36,8 +36,9 @@ export default function Accord() {
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>58 Kent Street, Quincy, MA, 02169</Card.Body>
-              {/* <AddressSearch /> */}
+              <Card.Body>
+                <AddressSearch />
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>
