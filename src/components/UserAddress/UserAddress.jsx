@@ -6,6 +6,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import AddressSearch from "./AddressSearch";
 
 export default function UserAddress() {
   const [selectedLoc, setSelectedLoc] = useState([]);

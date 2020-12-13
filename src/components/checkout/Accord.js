@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Accordion, Card, Button, Table } from "react-bootstrap";
 import "../../style/Payment.css";
 import { useStateValue } from "../../Providers/StateProvider";
+import AddressSearch from "../UserAddress/AddressSearch";
 
 export default function Accord() {
   const [{ cart }, dispatch] = useStateValue();
@@ -36,6 +37,7 @@ export default function Accord() {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>58 Kent Street, Quincy, MA, 02169</Card.Body>
+              {/* <AddressSearch /> */}
             </Accordion.Collapse>
           </Card>
           <Card>
