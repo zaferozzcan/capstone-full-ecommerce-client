@@ -1,4 +1,5 @@
 import React from "react";
+// import "../../style/AddressSearch";
 import usePlacesAutoComplete, {
   getGeocode,
   getLatLng,
@@ -41,8 +42,18 @@ export default function AddressSearch() {
   console.log("isloaded", isLoaded);
   console.log("ready ", ready);
   return (
-    <div>
-      <Combobox onSelect={(address) => console.log(address)}>
+    <div className="search">
+      <Combobox
+        onSelect={async (address) => {
+          try {
+            const results = await getGeocode({ address });
+            const { lat, lng } = await getLatLng(results[0]);
+            console.log(lat, lng);
+          } catch (err) {
+            console.log(err);
+          }
+        }}
+      >
         <ComboboxInput
           value={value}
           onChange={(e) => {
