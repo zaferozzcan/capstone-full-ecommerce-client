@@ -6,7 +6,7 @@ import { useStateValue } from "../../Providers/StateProvider";
 import AddressSearch from "../UserAddress/AddressSearch";
 
 export default function Accord() {
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ cart, address }, dispatch] = useStateValue();
   function handleRemove(id) {
     dispatch({ type: "REMOVE_ITEM", id: id });
   }
@@ -37,7 +37,22 @@ export default function Accord() {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-                <AddressSearch />
+                <div>
+                  <AddressSearch />
+
+                  {address && (
+                    <p>
+                      Your Address: <strong>{address}</strong>...
+                      <div>
+                        <small>
+                          <Link to={"/useraddress"}>
+                            See Your Address on Map
+                          </Link>
+                        </small>
+                      </div>
+                    </p>
+                  )}
+                </div>
               </Card.Body>
             </Accordion.Collapse>
           </Card>

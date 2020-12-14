@@ -54,6 +54,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         address: action.address,
+        lng: action.lng,
+        lat: action.lat,
       };
     default:
       return state;

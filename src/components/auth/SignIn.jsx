@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import "../../style/SignIn.css";
 import { auth } from "../../firebase";
+import { useStateValue } from "../../Providers/StateProvider";
 
 export default function SignIn() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [{ user }, dispatch] = useStateValue();
   //   console.log("email", email, "password", password);
 
   const handleSubmitSignIn = (e) => {
@@ -20,8 +23,18 @@ export default function SignIn() {
         history.push("/");
       })
       .catch((error) => alert(error.message));
+
+    // dbs;
+    axios({
+      method: "post",
+      url: `http://localhost:5000/user`,
+      data: { user_email: email },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
+  console.log("user in sign in", user);
   return (
     <div className="signin-container">
       <h5>Sign In </h5>

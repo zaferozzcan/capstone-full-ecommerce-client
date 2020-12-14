@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useStateValue } from "../../Providers/StateProvider";
 import "dotenv";
 // import "../../style/AddressSearch";
@@ -41,9 +42,10 @@ export default function AddressSearch() {
     },
   });
 
-  const [{ address }, dispatch] = useStateValue();
+  const [{ address, user }, dispatch] = useStateValue();
   // console.log("isloaded", isLoaded);
   // console.log("ready ", ready);
+  console.log("address", address);
   return (
     <div className="search">
       <Combobox
@@ -52,14 +54,29 @@ export default function AddressSearch() {
             setValue(address, false);
             clearSuggestions();
             const results = await getGeocode({ address });
-            const { lat, lng } = await getLatLng(results[0]);
-            console.log(lat, lng);
+            let { lat, lng } = await getLatLng(results[0]);
             dispatch({
               type: "ADD_CURRENT_LOCATION",
-              address: value,
+              address: address,
+              lng: lng,
+              lat: lat,
             });
+
+            setValue("");
           } catch (err) {
             console.log(err);
+          }
+          try {
+            axios({
+              method: "put",
+              url: "http://localhost:5000/order",
+              data: {
+                user_email: user.email,
+                user_addres: address,
+              },
+            });
+          } catch (err) {
+            console.log(err.message);
           }
         }}
       >

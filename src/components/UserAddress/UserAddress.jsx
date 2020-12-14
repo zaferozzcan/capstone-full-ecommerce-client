@@ -1,10 +1,24 @@
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { useStateValue } from "../../Providers/StateProvider";
 
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { getLatLng } from "use-places-autocomplete";
 
 export default function UserAddress() {
   const [selectedLoc, setSelectedLoc] = useState([]);
+  const [{ lng, lat }, dispatch] = useStateValue();
+
+  //    useeffect
+  useEffect(() => {
+    const getLngLat = async () => {
+      setSelectedLoc({
+        lat: lat,
+        lng: lng,
+      });
+    };
+    getLngLat();
+  }, []);
+
   const clickOnMap = useCallback((e) => {
     setSelectedLoc({
       lat: e.latLng.lat(),
@@ -18,7 +32,7 @@ export default function UserAddress() {
   }, []);
 
   // map props
-  const libraries = ["places", "geocoding"];
+  const libraries = ["places"];
   const mapContainerStyle = {
     width: "100vw",
     height: "100vh",
@@ -29,23 +43,20 @@ export default function UserAddress() {
     libraries,
   });
   const center = {
-    lat: 38,
-    lng: -97,
+    lat: lat,
+    lng: lng,
   };
-
-  const [{ address }, dispatch] = useStateValue();
 
   if (loadError) return "There is an error when loading maps";
   if (!isLoaded) return "Loading Maps";
 
-  //   console.log(selectedLoc);
-  console.log("addeess in useradd", address);
+  console.log("selected loc", selectedLoc);
   return (
     <div>
       {/* <Seach /> */}
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={5}
+        zoom={15}
         center={center}
         onClick={clickOnMap}
         onLoad={LoadOnMap}
@@ -58,14 +69,3 @@ export default function UserAddress() {
     </div>
   );
 }
-
-// function Seach() {
-//   const { ready } = usePlacesAutocomplete({
-//     requestOptions: {
-//       location: { lat: () => 42.2413, lng: () => -71.01809 },
-//       radius: 100 * 1000,
-//     },
-//   });
-//   console.log("ready in maps", ready);
-//   return <div>The search bar</div>;
-// }

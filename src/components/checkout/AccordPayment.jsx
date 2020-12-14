@@ -6,7 +6,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 
 export default function AccordPayment() {
-  const [{ cart, user, card }, dispatch] = useStateValue();
+  const [{ cart, user, card, address }, dispatch] = useStateValue();
   const history = useHistory();
   const total = cart.reduce((acc, item) => acc + item.price, 0);
   const stripe = useStripe();
@@ -52,17 +52,16 @@ export default function AccordPayment() {
         data: {
           user_id: user.uid,
           user_email: user.email,
-          user_addres: "11 Moseley Street",
-          user_city: "Boston",
-          user_zip: "02125",
-          user_state: "MA",
+          user_addres: address,
+          // user_city: "Boston",
+          // user_zip: "02125",
+          // user_state: "MA",
           orders: cart,
         },
       });
     } catch (err) {
       console.log("order send to data err", err);
     }
-
     dispatch({
       type: "EMPTY_CART",
     });
