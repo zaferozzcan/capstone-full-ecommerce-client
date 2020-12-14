@@ -1,14 +1,12 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
+import Header from "../../components/header/Header";
 import { useStateValue } from "../../Providers/StateProvider";
-
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { getLatLng } from "use-places-autocomplete";
 
 export default function UserAddress() {
   const [selectedLoc, setSelectedLoc] = useState([]);
-  const [{ lng, lat }, dispatch] = useStateValue();
+  const [{ lng, lat }] = useStateValue();
 
-  //    useeffect
   useEffect(() => {
     const getLngLat = async () => {
       setSelectedLoc({
@@ -53,7 +51,7 @@ export default function UserAddress() {
   console.log("selected loc", selectedLoc);
   return (
     <div>
-      {/* <Seach /> */}
+      <Header />
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={15}
