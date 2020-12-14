@@ -1,5 +1,6 @@
 import React from "react";
 import { useStateValue } from "../../Providers/StateProvider";
+import "dotenv";
 // import "../../style/AddressSearch";
 import usePlacesAutoComplete, {
   getGeocode,
@@ -21,10 +22,10 @@ import {
 } from "@react-google-maps/api";
 
 // // // // // // // // referenced from https://www.npmjs.com/package/use-places-autocomplete
-const libraries = ["places"];
+const libraries = ["places", "geocoding"];
 export default function AddressSearch() {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_API_KEY,
+    googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`,
     libraries,
   });
   const {
@@ -41,8 +42,8 @@ export default function AddressSearch() {
   });
 
   const [{ address }, dispatch] = useStateValue();
-  console.log("isloaded", isLoaded);
-  console.log("ready ", ready);
+  // console.log("isloaded", isLoaded);
+  // console.log("ready ", ready);
   return (
     <div className="search">
       <Combobox

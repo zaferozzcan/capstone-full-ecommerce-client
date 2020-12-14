@@ -18,13 +18,14 @@ export default function UserAddress() {
   }, []);
 
   // map props
-  const libraries = ["places"];
+  const libraries = ["places", "geocoding"];
   const mapContainerStyle = {
     width: "100vw",
     height: "100vh",
   };
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_API_KEY,
+    googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_API_KEY}`,
     libraries,
   });
   const center = {
