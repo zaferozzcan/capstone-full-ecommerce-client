@@ -8,6 +8,7 @@ import SignIn from "./components/auth/SignIn";
 import Register from "./components/auth/Register";
 import Payment from "./components/checkout/Payment";
 import Orders from "./components/orders/Orders";
+import HelpChat from "./components/helpChat/HelpChat";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import { useStateValue } from "./Providers/StateProvider";
@@ -41,8 +42,8 @@ function App() {
   }, []);
 
   // console.log("modal", modal);
-  console.log("address in appjs", address);
-  console.log("let lng", lat, lng);
+  // console.log("address in appjs", address);
+  // console.log("let lng", lat, lng);
   return (
     <div className="App">
       {modal && (
@@ -78,6 +79,9 @@ function App() {
         </Route>
         <Route exact path={"/useraddress"}>
           <UserAddress />
+        </Route>
+        <Route path={"/help"} component={HelpChat}>
+          {/* <HelpChat /> */}
         </Route>
       </Switch>
     </div>

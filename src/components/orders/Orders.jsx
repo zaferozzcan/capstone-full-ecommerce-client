@@ -10,7 +10,9 @@ export default function Orders() {
     const getPastOrders = async () => {
       const response = await Axios({
         method: "GET",
-        url: `http://localhost:5000/order/${user && user.uid}`,
+        url: `https://capstone-store-api.herokuapp.com/order/${
+          user && user.uid
+        }`,
       });
 
       setPastOrders(response.data);

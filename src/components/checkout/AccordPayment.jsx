@@ -19,7 +19,9 @@ export default function AccordPayment() {
     const getClientSecret = async () => {
       const response = await axios({
         method: "post",
-        url: `http://localhost:5000/card/payments/create?total=${total * 100}`,
+        url: `https://capstone-store-api.herokuapp.com/card/payments/create?total=${
+          total * 100
+        }`,
       });
 
       setClientSecret(response.data.paymentIntent.client_secret);
@@ -48,7 +50,7 @@ export default function AccordPayment() {
     try {
       axios({
         method: "post",
-        url: "http://localhost:5000/order",
+        url: "https://capstone-store-api.herokuapp.com/order",
         data: {
           user_id: user.uid,
           user_email: user.email,

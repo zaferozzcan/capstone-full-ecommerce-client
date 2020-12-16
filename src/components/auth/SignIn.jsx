@@ -27,7 +27,7 @@ export default function SignIn() {
     // dbs;
     axios({
       method: "post",
-      url: `http://localhost:5000/user`,
+      url: `https://capstone-store-api.herokuapp.com/user`,
       data: { user_email: email },
     })
       .then((res) => console.log(res))
