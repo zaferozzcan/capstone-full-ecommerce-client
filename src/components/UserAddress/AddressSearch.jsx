@@ -69,7 +69,7 @@ export default function AddressSearch() {
           try {
             axios({
               method: "put",
-              url: "http://localhost:5000/order",
+              url: "https://capstone-store-api.herokuapp.com/order",
               data: {
                 user_email: user.email,
                 user_addres: address,
