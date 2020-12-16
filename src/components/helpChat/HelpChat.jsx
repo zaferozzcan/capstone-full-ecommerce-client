@@ -8,12 +8,12 @@ let socket;
 export default function HelpChat(props) {
   const [{ user }] = useStateValue();
   const endPoint = "http://localhost:5001";
-  let socket;
-  useEffect(() => {
-    socket = io.connect(endPoint);
-    console.log("socket", socket);
-  }, []);
-  console.log(props.location.search);
+  // useEffect(() => {
+  //   socket = io.connect(endPoint);
+  //   console.log("socket", socket);
+  // }, []);
+  io.connect(endPoint);
+  console.log(io.connect(endPoint));
   return (
     <div>
       <div id="message-container"></div>

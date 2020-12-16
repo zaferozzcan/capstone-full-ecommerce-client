@@ -11,7 +11,7 @@ export default function Item(props) {
       item: {
         id: props.id,
         title: props.title,
-        image: "",
+        image: props.image,
         price: props.price,
         rating: "",
       },
@@ -19,8 +19,8 @@ export default function Item(props) {
   }
   return (
     <div className="items">
-      <img className="item-info" src={SampleProduct} alt="" />
-      <p>{props.title}</p>
+      <img className="item-info" src={props.image} alt="" />
+      <p>{props.title.substring(0, 50) + "..."}</p>
       <div className="item-inner">
         <small>$</small>
         <strong>{props.price}</strong>
