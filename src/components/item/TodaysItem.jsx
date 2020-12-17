@@ -37,7 +37,9 @@ export default function Item() {
         <Card.Title>Today's Deal</Card.Title>
         <Card.Img
           variant="top"
-          src={todaysItem ? todaysItem.item.image : alterItem.image}
+          src={
+            todaysItem && todaysItem ? todaysItem.item.image : alterItem.image
+          }
         />
         <Card.Body>
           <Card.Text>

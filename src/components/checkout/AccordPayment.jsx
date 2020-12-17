@@ -11,7 +11,7 @@ export default function AccordPayment() {
   const total = cart.reduce((acc, item) => acc + item.price, 0);
   const stripe = useStripe();
 
-  const [succeeded, setSucceeded] = useState(false);
+  const [process, setProcess] = useState(false);
   const [clientSecret, setClientSecret] = useState(true);
   const [paymentIntent, setPaymentIntent] = useState({});
 
@@ -47,6 +47,7 @@ export default function AccordPayment() {
   };
   console.log("client sectret", clientSecret);
   function handleClick() {
+    setProcess(true);
     try {
       axios({
         method: "post",
@@ -67,7 +68,9 @@ export default function AccordPayment() {
     dispatch({
       type: "EMPTY_CART",
     });
-    history.replace("/");
+    setTimeout(() => {
+      history.replace("/");
+    }, 1000);
   }
 
   console.log("card", card);
@@ -77,12 +80,16 @@ export default function AccordPayment() {
       <Card className="text-center">
         <Card.Header>Order Summary</Card.Header>
         <Card.Body>
-          <Card.Text>$Subtotal:{total}</Card.Text>
+          <Card.Text>Subtotal:${total}</Card.Text>
           <Card.Text>Tax:Tax Free</Card.Text>
           <Card.Text>Fee:0</Card.Text>
           <form onSubmit={handleSubmit}>
-            <Button onClick={handleClick} type="button" variant="primary">
-              Complete Purchase
+            <Button
+              variant={process ? "success" : "primary"}
+              onClick={handleClick}
+              type="button"
+            >
+              {process ? "Processing" : "Complete Purchase"}
             </Button>
           </form>
         </Card.Body>

@@ -6,17 +6,19 @@ import { useStateValue } from "../../Providers/StateProvider";
 import AddressSearch from "../UserAddress/AddressSearch";
 
 export default function Accord() {
+  const [add, setAdd] = useState(false);
   const [{ cart, address, user }, dispatch] = useStateValue();
   function handleRemove(id) {
     dispatch({ type: "REMOVE_ITEM", id: id });
   }
   function openModal() {
+    setAdd(true);
     dispatch({
       type: "SHOW_MODAL",
       modal: true,
     });
   }
-
+  console.log("add".add);
   return (
     <div className="accord">
       <br></br>
@@ -74,6 +76,8 @@ export default function Accord() {
                   <Button variant="warning" onClick={openModal}>
                     {user && user.email === "zaferozzcan@gmail.com"
                       ? "Change"
+                      : add
+                      ? "✅"
                       : "Add"}
                   </Button>
                 </span>
