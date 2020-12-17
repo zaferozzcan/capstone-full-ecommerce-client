@@ -6,7 +6,7 @@ import { useStateValue } from "../../Providers/StateProvider";
 import AddressSearch from "../UserAddress/AddressSearch";
 
 export default function Accord() {
-  const [{ cart, address }, dispatch] = useStateValue();
+  const [{ cart, address, user }, dispatch] = useStateValue();
   function handleRemove(id) {
     dispatch({ type: "REMOVE_ITEM", id: id });
   }
@@ -33,7 +33,7 @@ export default function Accord() {
         <Accordion defaultActiveKey="0">
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+              <Accordion.Toggle as={Button} variant="light" eventKey="0">
                 Shipping Address
               </Accordion.Toggle>
             </Card.Header>
@@ -48,7 +48,7 @@ export default function Accord() {
                       <div>
                         <small>
                           <Link to={"/useraddress"}>
-                            See Your Address on Map
+                            <Button> See Your Address on Map</Button>
                           </Link>
                         </small>
                       </div>
@@ -60,56 +60,73 @@ export default function Accord() {
           </Card>
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey="1">
+              <Accordion.Toggle as={Button} variant="light" eventKey="1">
                 Payment Method
               </Accordion.Toggle>
             </Card.Header>
 
             <Accordion.Collapse eventKey="1">
               <Card.Body>
-                Visa ending 2222 <button onClick={openModal}>change</button>
+                {user && user.email === "zaferozzcan@gmail.com"
+                  ? "Saved Card ending 4242"
+                  : null}
+                <span style={{ marginLeft: "5px" }}>
+                  <Button variant="warning" onClick={openModal}>
+                    {user && user.email === "zaferozzcan@gmail.com"
+                      ? "Change"
+                      : "Add"}
+                  </Button>
+                </span>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>
             <Card.Header>
-              <Accordion.Toggle as={Button} variant="link" eventKey="2">
+              <Accordion.Toggle as={Button} variant="light" eventKey="2">
                 Review items
               </Accordion.Toggle>
             </Card.Header>
             <Accordion.Collapse eventKey="2">
               <Card.Body>
                 <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Price</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  {cart.length === 0
-                    ? "There is no item in the cart"
-                    : cart.map((item, index) => {
-                        return (
-                          <>
-                            <tbody>
-                              <tr>
-                                <td>{item.title}</td>
-                                <td>{item.price}</td>
-                                <td>
-                                  {" "}
-                                  <button
-                                    onClick={() => handleRemove(item.id)}
-                                    className="accordion-remove-button"
-                                  >
-                                    X
-                                  </button>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </>
-                        );
-                      })}
+                  {cart.length === 0 ? (
+                    <Link to={"/"}>
+                      <div style={{ margin: "5px 0" }}>
+                        <Button variant="dark">
+                          There is no item in the cart{" "}
+                        </Button>
+                      </div>
+                    </Link>
+                  ) : (
+                    cart.map((item, index) => {
+                      return (
+                        <>
+                          <thead>
+                            <tr>
+                              <th>Item</th>
+                              <th>Price</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>{item.title}</td>
+                              <td>{item.price}</td>
+                              <td>
+                                {" "}
+                                <button
+                                  onClick={() => handleRemove(item.id)}
+                                  className="accordion-remove-button"
+                                >
+                                  X
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </>
+                      );
+                    })
+                  )}
                 </Table>
               </Card.Body>
             </Accordion.Collapse>

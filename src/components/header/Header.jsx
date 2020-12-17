@@ -17,6 +17,9 @@ export default function Header() {
   function authHandler() {
     if (user) {
       auth.signOut();
+      dispatch({
+        type: "EMPTY_CART",
+      });
       history.push("/");
     }
   }

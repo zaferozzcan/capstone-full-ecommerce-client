@@ -4,6 +4,7 @@ import "../../style/Item.css";
 import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 export default function Item() {
+  useEffect(() => {}, []);
   return (
     <Card style={{ width: "14rem" }}>
       <Card.Img variant="top" src />
