@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ItemContainer from "../item/ItemContainer";
 import Banner from "./Banner";
-import { useStateValue } from "../../Providers/StateProvider";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -41,6 +40,7 @@ export default function Home() {
             />
           );
         })} */}
+
         <ItemContainer products={products} />
       </div>
     </div>

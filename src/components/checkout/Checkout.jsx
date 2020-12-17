@@ -10,9 +10,11 @@ export default function Checkout() {
   return (
     <>
       <div className="checkout-banner">
-        {user
-          ? "Thanks for your business"
-          : "Sign Up for Our Credit Cart to Get 10% Off!"}
+        {user ? (
+          <h1 style={{ color: "white" }}>Thanks for your business</h1>
+        ) : (
+          <h1>Sign Up for Our Credit Cart to Get 10% Off!</h1>
+        )}
       </div>
       <div className="checkout-container">
         <CheckoutLeft />

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../style/Header.css";
-import BrandLogo from "../../images/mzn-logo.png";
+import { FaShopware } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link, useHistory, NavLink } from "react-router-dom";
@@ -17,6 +17,9 @@ export default function Header() {
   function authHandler() {
     if (user) {
       auth.signOut();
+      dispatch({
+        type: "EMPTY_CART",
+      });
       history.push("/");
     }
   }
@@ -25,7 +28,8 @@ export default function Header() {
       {/*logo */}
       <div className="header-child brand-logo">
         <Link to={"/"}>
-          <img className="brand-logo-item" src={BrandLogo} alt="brand-logo" />
+          {/* <img className="brand-logo-item" src={} alt="brand-logo" /> */}
+          <FaShopware size={60} /> RetailTherapy.com
         </Link>
       </div>
       {/* search bar */}

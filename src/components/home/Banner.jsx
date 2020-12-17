@@ -1,5 +1,7 @@
 import React from "react";
 import TodaysItem from "../item/TodaysItem";
+import PopularItem from "../item/PopularItem";
+import CategoryBox from "../../components/item/CategoryBox";
 import "../../style/Banner.css";
 
 export default function Banner() {
@@ -11,8 +13,9 @@ export default function Banner() {
         <div className="typewriter slogan-header ">
           <h1>Spirits, up! Prices, down!</h1>
         </div>
-        <div className="deals">
-          <TodaysItem />
+        <div className="deals"></div>
+        <div className="home-below">
+          <TodaysItem /> <CategoryBox /> <PopularItem />
         </div>
       </div>
     </div>
