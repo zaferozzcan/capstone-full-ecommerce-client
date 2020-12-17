@@ -23,7 +23,7 @@ export default function Item() {
         dispatch({
           type: "ADD_TODAYS_ITEM",
           todaysItem: {
-            item: res.data[Math.ceil(Math.random() * res.data.length - 1)],
+            item: res.data[Math.floor(Math.random() * res.data.length - 2)],
             day: today,
           },
         });
@@ -34,20 +34,17 @@ export default function Item() {
   return (
     <div className="todays-item">
       <Card style={{ width: "16rem" }}>
-        <Card.Title>Today's Deal</Card.Title>
+        <Card.Title>Popular Item</Card.Title>
         <Card.Img
           variant="top"
-          src={todaysItem ? todaysItem.item.image : alterItem.image}
+          src="https://images-na.ssl-images-amazon.com/images/I/615LSep2qnL._AC_SL1000_.jpg"
         />
         <Card.Body>
           <Card.Text>
-            {todaysItem
-              ? todaysItem.item.title.substring(0, 80) + "..."
-              : alterItem.title}
+            Apple Smart Keyboard Folio for iPad Pro 12.9-inch (4th
+            Generation)Keyboard Folio for iPad Folio for iPad Pro 12.9-inch
           </Card.Text>
-          <Card.Text>
-            ${todaysItem ? todaysItem.item.price : alterItem.price}
-          </Card.Text>
+          <Card.Text>$149.99</Card.Text>
           <Button onClick href="#">
             Add To Cart
           </Button>
