@@ -35,17 +35,26 @@
 }
 
 .checkout-button {
-  background-color: gold;
-  border: 1px solid rgb(204, 176, 17);
   display: flex;
   align-self: center;
   width: 70%;
   justify-content: center;
+  box-shadow: 0 0 1px green;
 }
 .checkout-left {
   width: 50%;
+  padding: 10px;
 }
 
 .checkout-right {
   width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-img-bottom {
+  max-width: 50%;
+  max-height: 40%;
+  padding: 5px;
+  margin: 0 auto;
 }

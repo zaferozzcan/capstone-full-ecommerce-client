@@ -13,7 +13,6 @@ export default function Item(props) {
         title: props.title,
         image: props.image,
         price: props.price,
-        rating: "",
       },
     });
   }

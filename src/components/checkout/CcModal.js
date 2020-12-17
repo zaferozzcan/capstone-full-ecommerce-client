@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CardElement, useElements } from "@stripe/react-stripe-js";
 import { useStateValue } from "../../Providers/StateProvider";
+import { Button } from "react-bootstrap";
 
 import "../../style/CcModal.css";
 
@@ -39,16 +40,21 @@ export function CcModal() {
       <div id="modal">
         <div id="modal-textbox">
           <h1>Add Credit Cart</h1>
+          <br></br>
           <form onSubmit={handleSubmit}>
             <CardElement onChange={handleChange} />
-            <button onClick={addCcInfo} type="submit">
-              {" "}
-              Ok{" "}
-            </button>
+
+            <div className="ok-button">
+              <Button onClick={addCcInfo} type="submit">
+                Done
+              </Button>
+            </div>
           </form>
 
-          <div id="modal-footer">
-            <button onClick={closeModal}>Close</button>
+          <div id="modal-footer" className="ok-button">
+            <Button variant="danger" onClick={closeModal} type="submit">
+              Close
+            </Button>
           </div>
         </div>
       </div>

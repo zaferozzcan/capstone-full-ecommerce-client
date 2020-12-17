@@ -20,13 +20,15 @@ export default function Accord() {
   return (
     <div className="accord">
       <br></br>
-      <Link>
-        <h4 className="Accord-heading">
-          {cart.length >= 1
-            ? `Checkout your ${cart.length} item`
-            : "You dont have any item in your cart"}
-        </h4>
-      </Link>
+
+      <h4 className="Accord-heading">
+        {cart.length >= 1 ? (
+          <h2>Checkout your {cart.length} item</h2>
+        ) : (
+          <h2>You don't have any item in your cart</h2>
+        )}
+      </h4>
+
       <div className="payment-container">
         <Accordion defaultActiveKey="0">
           <Card>
