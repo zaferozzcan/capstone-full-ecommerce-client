@@ -77,7 +77,7 @@ export default function AccordPayment() {
       <Card className="text-center">
         <Card.Header>Order Summary</Card.Header>
         <Card.Body>
-          <Card.Text>Subtotal:{total}</Card.Text>
+          <Card.Text>$Subtotal:{total}</Card.Text>
           <Card.Text>Tax:Tax Free</Card.Text>
           <Card.Text>Fee:0</Card.Text>
           <form onSubmit={handleSubmit}>

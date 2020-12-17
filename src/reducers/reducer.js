@@ -57,6 +57,11 @@ const reducer = (state, action) => {
         lng: action.lng,
         lat: action.lat,
       };
+    case "ADD_TODAYS_ITEM":
+      return {
+        ...state,
+        todaysItem: action.todaysItem,
+      };
     default:
       return state;
   }

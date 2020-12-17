@@ -111,7 +111,7 @@ export default function Accord() {
                           <tbody>
                             <tr>
                               <td>{item.title}</td>
-                              <td>{item.price}</td>
+                              <td>${item.price}</td>
                               <td>
                                 {" "}
                                 <button

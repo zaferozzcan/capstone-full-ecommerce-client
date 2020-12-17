@@ -1,27 +1,58 @@
-import React from "react";
-import SampleProduct from "../../images/sample-product.jpg";
+import React, { useEffect } from "react";
+import { useStateValue } from "../../Providers/StateProvider";
+import axios from "axios";
 import "../../style/Item.css";
-import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
-
+import { Card, Button } from "react-bootstrap";
+const today = Date().split(" ")[0];
+const alterItem = {
+  title:
+    "Apple Smart Keyboard Folio for iPad Pro 12.9-inch (4th Generation) - US English",
+  price: 141.73,
+  image:
+    "https://images-na.ssl-images-amazon.com/images/I/615LSep2qnL._AC_SL1000_.jpg\n\n",
+  category: "electronic",
+};
 export default function Item() {
-  useEffect(() => {}, []);
+  const [{ todaysItem }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    axios("https://capstone-store-api.herokuapp.com/item")
+      .then((res) => {
+        console.log("length", res.data.length);
+        console.log("random", Math.floor(Math.random() * res.data.length - 2));
+        dispatch({
+          type: "ADD_TODAYS_ITEM",
+          todaysItem: {
+            item: res.data[Math.floor(Math.random() * res.data.length - 2)],
+            day: today,
+          },
+        });
+      })
+      .catch((err) => console.log(err.message));
+  }, []);
+  // console.log("todaysItem", todaysItem && todaysItem.item);
   return (
-    <Card style={{ width: "14rem" }}>
-      <Card.Img variant="top" src />
-      <Card.Body>
-        <Card.Text>"test"</Card.Text>
-        <Card.Title>"hello"</Card.Title>
-        {/* </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroupItem>Cras justo odio</ListGroupItem>
-        <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-        <ListGroupItem>Vestibulum at eros</ListGroupItem>
-      </ListGroup>
-      <Card.Body> */}
-        <Button onClick href="#">
-          Add To Cart
-        </Button>
-      </Card.Body>
-    </Card>
+    <div className="todays-item">
+      <Card style={{ width: "16rem" }}>
+        <Card.Img
+          variant="top"
+          src={todaysItem ? todaysItem.item.image : alterItem.image}
+        />
+        <Card.Body>
+          <Card.Title>Today's Deal</Card.Title>
+          <Card.Text>
+            {todaysItem
+              ? todaysItem.item.title.substring(0, 80) + "..."
+              : alterItem.title}
+          </Card.Text>
+          <Card.Text>
+            ${todaysItem ? todaysItem.item.price : alterItem.price}
+          </Card.Text>
+          <Button onClick href="#">
+            Add To Cart
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
