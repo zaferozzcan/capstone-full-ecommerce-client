@@ -45,9 +45,9 @@ Deployed application answers entire functionality. In future deployments, some f
 Provide a help chat popup service- using web sockets
 Provide Recommender System for the leverage company's profit
 
-# Wireframes and user stories
+# User stories
 
-![alt text](https://sei-roberto.s3.amazonaws.com/a5ffeebbac561a88f435f273bb1a8d0e)
+![alt text]()
 
 - As an unregistered user, I Would like to add items to the cart.
 - As an unregistered user, I would like to sign up with email and password yto checkout the cart.
@@ -60,11 +60,7 @@ Provide Recommender System for the leverage company's profit
 
 ### Screenshot of the Application
 
-![alt text]()
-
-Setup and installation instructions for the front end application
-
-Note: This is a React.js application, please check React Documentation before starting.
+![](pics-copy/sign-in.png)
 
 ### This Application uses three different Restful APIs:
 
