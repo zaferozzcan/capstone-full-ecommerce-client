@@ -14,11 +14,7 @@ Github: https://github.com/zaferozzcan/capstone-full-ecommerce-client
 Live Site: https://capstone-store-api.herokuapp.com
 GitHub: https://github.com/zaferozzcan/capstone-full-ecommarce-api
 
-RetailTherapy.com is an application where user can perform full shopping experience.
--Client is able to add products to the cart and proceed to checkout.
--Client is able to update his/her cart--removing and editing the cart items.
--Client can update his/her address, as well as see the address on the map.
--Client can add his/her credit cart and update the card number.
+RetailTherapy.com is an application where a user can perform a full shopping experience. The user can add products to the cart and proceed to checkout, update his/her cart, update his/her address, also see the address on the map. Also, the user can add his/her credit card and update the card number.
 
 # List of Technologies:
 
