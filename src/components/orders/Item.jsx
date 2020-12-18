@@ -6,7 +6,7 @@ export default function Item(props) {
   return (
     <div item="item-container">
       <Card style={{ width: "14rem", heigh: "12rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+        <Card.Img variant="top" src={props.item.image} />
         <Card.Body>
           <Card.Title>{props.item.title.substring(0, 8) + "..."}</Card.Title>
           <Card.Text>{props && props.item.title}</Card.Text>

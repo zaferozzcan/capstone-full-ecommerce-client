@@ -19,11 +19,12 @@ export default function Orders() {
     };
     getPastOrders();
   }, []);
-  console.log("pastorders", pastOrders);
+  // console.log("pastorders", pastOrders.item);
   return (
     <div className="orders-container">
       {pastOrders &&
         pastOrders.map((order, index) => {
+          console.log("order", order);
           return <Order key={index} orderItems={order.orders} />;
         })}
     </div>

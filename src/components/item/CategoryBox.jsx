@@ -18,13 +18,34 @@ export default function CategoryBox() {
               variant="top"
               src="https://previews.123rf.com/images/koszubarev/koszubarev1706/koszubarev170600022/80129453-summer-collection-men-clothes-set-with-checkered-shirt-jeans-shoes-and-belt-isolated-on-white-backgr.jpg"
             />
+            <p
+              style={{
+                textAlign: "center",
+                lineHeight: 1.2,
+                fontSize: "8px",
+                paddingTop: "6px",
+              }}
+            >
+              Men gift guide
+            </p>
           </div>
-          <span className="margin-span"></span>
+
+          <span className="margin-span"> </span>
           <div className="women category-item">
             <Card.Img
               variant="top"
               src="https://image.made-in-china.com/2f0j00QkARoTIgbwcM/High-Quality-Gown-Private-Label-New-Design-Factory-Spring-Private-Label-Fashion-Women-Clothes-Beautiful-Dresses-Ladies-Dress.jpg"
             />
+            <p
+              style={{
+                textAlign: "center",
+                lineHeight: 1.2,
+                fontSize: "8px",
+                paddingTop: "6px",
+              }}
+            >
+              Women fashion guide
+            </p>
           </div>
         </div>
 
@@ -34,6 +55,16 @@ export default function CategoryBox() {
               variant="top"
               src="https://www.ascentialedge.com/sites/default/files/styles/image_text_vert/public/image/grid/2016-Toy-Category-Report.png?itok=n5A-CEyA"
             />
+            <p
+              style={{
+                textAlign: "center",
+                lineHeight: 1.2,
+                fontSize: "8px",
+                paddingTop: "6px",
+              }}
+            >
+              Toys gift guide
+            </p>
           </div>
           <span className="margin-span"></span>
           <div className="electronic category-item">
@@ -41,6 +72,16 @@ export default function CategoryBox() {
               variant="top"
               src="https://images-na.ssl-images-amazon.com/images/I/615LSep2qnL._AC_SL1000_.jpg"
             />
+            <p
+              style={{
+                textAlign: "center",
+                lineHeight: 1.2,
+                fontSize: "8px",
+                paddingTop: "6px",
+              }}
+            >
+              Electronics gift guide
+            </p>
           </div>
         </div>
       </Card>
