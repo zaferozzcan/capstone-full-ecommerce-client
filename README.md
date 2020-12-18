@@ -6,13 +6,13 @@ By Zafer Ozcan
 
 # Front End
 
-Live Site:
-Github:
+Live Site:https://zafer-store-app.web.app/
+Github: https://github.com/zaferozzcan/capstone-full-ecommerce-client
 
 # Back End
 
-Live Site:
-GitHub:
+Live Site: https://capstone-store-api.herokuapp.com
+GitHub: https://github.com/zaferozzcan/capstone-full-ecommarce-api
 
 RetailTherapy.com is an application where user can perform full shopping experience.
 -Client is able to add products to the cart and proceed to checkout.
@@ -42,7 +42,7 @@ RetailTherapy.com is an application where user can perform full shopping experie
 
 Deployed application answers entire functionality. In future deployments, some features can be added for a better user Experience, such as:
 
-Provide a help chat popup service- using web sockets
+Provide a help chat popup service --using web sockets
 Provide Recommender System for the leverage company's profit
 
 # User stories
@@ -70,11 +70,10 @@ Provide Recommender System for the leverage company's profit
 <br>
 ![](pics-copy/ecommerce6.png)
 
-### This Application uses three different Restful APIs:
+### API'S:
 
 1. Actual database API, which can be found in this link. Make sure to setup this API first and configure to use in your front end.
 2. Google Maps API, find the documentation [Here]()
-3. Google API, find the documentation [Here](
 
 Fork and clone this repository.
 
