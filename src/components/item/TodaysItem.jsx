@@ -18,12 +18,12 @@ export default function Item() {
   useEffect(() => {
     axios("https://capstone-store-api.herokuapp.com/item")
       .then((res) => {
-        console.log("length", res.data.length);
-        console.log("random", Math.floor(Math.random() * res.data.length - 2));
+        console.log("length", res.data);
+        console.log("random", Math.floor(Math.random() * res.data.length) - 1);
         dispatch({
           type: "ADD_TODAYS_ITEM",
           todaysItem: {
-            item: res.data[Math.ceil(Math.random() * res.data.length - 1)],
+            item: res.data[Math.floor(Math.random() * res.data.length) - 1],
             day: today,
           },
         });
@@ -37,18 +37,22 @@ export default function Item() {
         <Card.Title>Today's Deal</Card.Title>
         <Card.Img
           variant="top"
-          src={
-            todaysItem && todaysItem ? todaysItem.item.image : alterItem.image
-          }
+          src="https://images-na.ssl-images-amazon.com/images/I/51YUEwsfoCL._AC_.jpg"
+          // {
+          //   todaysItem && todaysItem ? todaysItem.item.image : alterItem.image
+          // }
         />
         <Card.Body>
           <Card.Text>
-            {todaysItem
+            Plugo Letters by PlayShifu - Word Building with Phonics, Stories,
+            Puzzles | 5-10 Years Educational STEM Toy| Boys & Girls Gift
+            {/* {todaysItem
               ? todaysItem.item.title.substring(0, 80) + "..."
-              : alterItem.title}
+              : alterItem.title} */}
           </Card.Text>
           <Card.Text>
-            ${todaysItem ? todaysItem.item.price : alterItem.price}
+            59
+            {/* ${todaysItem ? todaysItem.item.price : alterItem.price} */}
           </Card.Text>
           <Button onClick href="#">
             Add To Cart

@@ -23,6 +23,7 @@ import {
 } from "@react-google-maps/api";
 
 // // // // // // // // referenced from https://www.npmjs.com/package/use-places-autocomplete
+
 const libraries = ["places", "geocoding"];
 export default function AddressSearch() {
   const { isLoaded, loadError } = useLoadScript({

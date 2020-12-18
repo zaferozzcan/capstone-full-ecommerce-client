@@ -23,7 +23,7 @@ export default function CategoryBox() {
                 textAlign: "center",
                 lineHeight: 1.2,
                 fontSize: "8px",
-                paddingTop: "6px",
+                paddingTop: "6pxg",
               }}
             >
               Men gift guide
@@ -41,7 +41,7 @@ export default function CategoryBox() {
                 textAlign: "center",
                 lineHeight: 1.2,
                 fontSize: "8px",
-                paddingTop: "6px",
+                paddingTop: "6pxg",
               }}
             >
               Women fashion guide
@@ -60,7 +60,7 @@ export default function CategoryBox() {
                 textAlign: "center",
                 lineHeight: 1.2,
                 fontSize: "8px",
-                paddingTop: "6px",
+                paddingTop: "6pxg",
               }}
             >
               Toys gift guide
@@ -77,7 +77,7 @@ export default function CategoryBox() {
                 textAlign: "center",
                 lineHeight: 1.2,
                 fontSize: "8px",
-                paddingTop: "6px",
+                paddingTop: "6pxg",
               }}
             >
               Electronics gift guide
