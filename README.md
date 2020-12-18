@@ -60,7 +60,11 @@ Provide Recommender System for the leverage company's profit
 
 ### Screenshot of the Application
 
-![](pics-copy/sign-in.png)
+![](pics-copy/ecommerce-main.png)
+![](pics-copy/ecommerce2.png)
+![](pics-copy/ecommerce3.png)
+![](pics-copy/ecommerce4.png)
+![](pics-copy/ecommerce6.png)
 
 ### This Application uses three different Restful APIs:
 
