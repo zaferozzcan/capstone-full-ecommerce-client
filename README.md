@@ -6,7 +6,7 @@ By Zafer Ozcan
 
 # Front End
 
-Live Site:https://retail-therapy-shopping-app.herokuapp.com/payment
+Live Site:https://retail-therapy-shopping-app.herokuapp.com
 Github: https://github.com/zaferozzcan/capstone-full-ecommerce-client
 
 # Back End
