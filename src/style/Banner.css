@@ -69,11 +69,7 @@
   display: flex;
 }
 
-@media only screen and (max-width: 500px) {
-  /* .header-container {
-    display: flex;
-    flex-direction: column;
-  } */
+@media only screen and (max-width: 380px) {
   .header-child {
     font-size: 0.5rem;
     font-weight: 500;
