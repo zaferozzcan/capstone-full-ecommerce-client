@@ -3,12 +3,13 @@
   background-color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .home-below {
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 .category-col1 {
@@ -26,4 +27,10 @@
   border: 1px black solid;
   box-shadow: 0 0 2px black;
   border-radius: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  .category-container {
+    display: none;
+  }
 }

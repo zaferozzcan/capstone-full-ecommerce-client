@@ -9,6 +9,7 @@
   cursor: pointer;
   z-index: 111;
   box-shadow: 1px 2px 4px lightblue;
+  width: 100vw;
 }
 .header-child {
   font-size: 1rem;
@@ -65,4 +66,49 @@
 .cart-item-count {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .header-container {
+    width: 100vw;
+  }
+  .header-child {
+    font-size: 0.5rem;
+    font-weight: 500;
+  }
+
+  .brand-logo {
+    font-size: 0;
+    font-weight: 100;
+  }
+  .search-icon {
+    max-width: 70vw;
+    padding: 0.1rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header-container {
+    width: 100vw;
+  }
+  .header-child {
+    font-size: 0.3rem;
+    font-weight: 600;
+  }
+
+  .brand-logo {
+    font-size: 0;
+  }
+  .search-icon {
+    max-width: 60vw;
+    padding: 0.1rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

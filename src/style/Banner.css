@@ -37,7 +37,7 @@
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.6s steps(40, end), blink-caret 0.75s step-end infinite;
+  animation: typing 3.6s steps(40, end) 0.75s step-end infinite;
 }
 
 /* The typing effect */
@@ -67,4 +67,32 @@
 
 .home-below {
   display: flex;
+}
+
+@media only screen and (max-width: 500px) {
+  /* .header-container {
+    display: flex;
+    flex-direction: column;
+  } */
+  .header-child {
+    font-size: 0.5rem;
+    font-weight: 500;
+  }
+
+  .brand-logo {
+    font-size: 0;
+    font-weight: 100;
+  }
+  .search-icon {
+    max-width: 70vw;
+    padding: 0.1rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-below {
+    display: flex;
+    flex-direction: column;
+  }
 }

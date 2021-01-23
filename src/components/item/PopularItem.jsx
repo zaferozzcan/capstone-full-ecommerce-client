@@ -18,8 +18,8 @@ export default function Item() {
   useEffect(() => {
     axios("https://capstone-store-api.herokuapp.com/item")
       .then((res) => {
-        console.log("length", res.data.length);
-        console.log("random", Math.floor(Math.random() * res.data.length - 2));
+        // console.log("length", res.data.length);
+        // console.log("random", Math.floor(Math.random() * res.data.length - 2));
         dispatch({
           type: "ADD_TODAYS_ITEM",
           todaysItem: {
