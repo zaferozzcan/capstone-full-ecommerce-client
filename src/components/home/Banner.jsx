@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Col, Row } from "react-bootstrap";
 import TodaysItem from "../item/TodaysItem";
 import PopularItem from "../item/PopularItem";
 import CategoryBox from "../../components/item/CategoryBox";
@@ -11,7 +10,7 @@ export default function Banner() {
       <div className="banner-box">
         <h1 className="main-header">Holiday Deals</h1>
         {/* <div className="slogan-header">Spirits, up! Prices, down!</div> */}
-        <div className="typewriter slogan-header ">
+        <div className="typewriter slogan-header">
           <h1>Spirits, up! Prices, down!</h1>
         </div>
         <div className="deals">
