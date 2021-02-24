@@ -67,7 +67,7 @@
 
 .home-below {
   display: flex;
-  width: 90vw;
+  width: 100vw;
   justify-content: space-evenly;
 }
 
