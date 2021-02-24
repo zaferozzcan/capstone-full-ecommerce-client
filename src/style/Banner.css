@@ -62,14 +62,20 @@
 }
 
 .deals {
-  width: 100%;
+  width: 100vw;
 }
 
 .home-below {
   display: flex;
+  width: 90vw;
+  justify-content: space-evenly;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 650px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
   .header-child {
     font-size: 0.5rem;
     font-weight: 500;
@@ -88,7 +94,6 @@
     align-items: center;
   }
   .home-below {
-    display: flex;
-    flex-direction: column;
+    display: none;
   }
 }
