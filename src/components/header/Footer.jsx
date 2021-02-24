@@ -12,6 +12,7 @@ export default function Footer() {
     alignItems: "center",
     textAlign: "center",
     color: "white",
+    textShadow: "white 1px 1px",
   };
   return (
     <div style={footerStyle}>
