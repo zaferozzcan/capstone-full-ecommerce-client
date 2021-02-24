@@ -51,7 +51,7 @@ export default function Item() {
               : alterItem.title} */}
           </Card.Text>
           <Card.Text>
-            59
+            $59
             {/* ${todaysItem ? todaysItem.item.price : alterItem.price} */}
           </Card.Text>
           <Button onClick href="#">

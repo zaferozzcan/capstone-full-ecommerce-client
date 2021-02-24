@@ -43,6 +43,7 @@ export default function Item() {
           <Card.Text>
             Apple Smart Keyboard Folio for iPad Pro 12.9-inch (4th
             Generation)Keyboard Folio for iPad Folio for iPad Pro 12.9-inch
+            Keyboard Folio for iPad Folio for iPad Pro 12
           </Card.Text>
           <Card.Text>$149.99</Card.Text>
           <Button onClick href="#">
