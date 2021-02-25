@@ -3,6 +3,7 @@ import { useStateValue } from "../../Providers/StateProvider";
 import axios from "axios";
 import "../../style/Item.css";
 import { Card, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 const today = Date().split(" ")[0];
 const alterItem = {
   title:
@@ -32,7 +33,16 @@ export default function Item() {
   }, []);
   // console.log("todaysItem", todaysItem && todaysItem.item);
   return (
-    <div className="todays-item">
+    <motion.div
+      initial={{
+        y: "-110vh",
+      }}
+      animate={{
+        y: 0,
+      }}
+      transition={{ delay: 1.3 }}
+      className="todays-item"
+    >
       <Card style={{ width: "16rem" }}>
         <Card.Title>Popular Item</Card.Title>
         <Card.Img
@@ -51,6 +61,6 @@ export default function Item() {
           </Button>
         </Card.Body>
       </Card>
-    </div>
+    </motion.div>
   );
 }

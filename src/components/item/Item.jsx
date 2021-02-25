@@ -44,10 +44,11 @@ export default function Item(props) {
         <motion.div
           style={{ size: "content" }}
           whileTap={{
-            scale: 1.2,
-            textShadow: "white 1.5px 1.5px",
-            boxShadow: "white 1.5px 1.5px",
+            scale: 1.4,
+            textShadow: "white 1.5px 1px",
+            boxShadow: "white 1.5px 1px",
           }}
+          transition={{ stiffness: 300 }}
         >
           <Button onClick={addToCart} href="#">
             Add To Cart

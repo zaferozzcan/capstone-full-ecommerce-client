@@ -1,10 +1,20 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { motion } from "framer-motion";
 import "../../style/Home.css";
 
 export default function CategoryBox() {
   return (
-    <div className="category-container">
+    <motion.div
+      initial={{
+        y: "-110vh",
+      }}
+      animate={{
+        y: 0,
+      }}
+      transition={{ delay: 1 }}
+      className="category-container"
+    >
       <Card
         style={{
           width: "16rem",
@@ -85,6 +95,6 @@ export default function CategoryBox() {
           </div>
         </div>
       </Card>
-    </div>
+    </motion.div>
   );
 }
