@@ -32,7 +32,7 @@ export default function Item(props) {
       <Card.Img variant="top" src={props.image} />
       <Card.Body>
         <Card.Text>{props.title}</Card.Text>
-        <Card.Title>{props.price}</Card.Title>
+        <Card.Title>${props.price}</Card.Title>
         {/* </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>Cras justo odio</ListGroupItem>
