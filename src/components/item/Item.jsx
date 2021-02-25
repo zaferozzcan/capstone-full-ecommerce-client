@@ -1,7 +1,8 @@
 import React from "react";
 import "../../style/Item.css";
 import { useStateValue } from "../../Providers/StateProvider";
-import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 export default function Item(props) {
   const [{ cart }, dispatch] = useStateValue();
@@ -40,9 +41,18 @@ export default function Item(props) {
         <ListGroupItem>Vestibulum at eros</ListGroupItem>
       </ListGroup>
       <Card.Body> */}
-        <Button onClick={addToCart} href="#">
-          Add To Cart
-        </Button>
+        <motion.div
+          style={{ size: "content" }}
+          whileTap={{
+            scale: 1.2,
+            textShadow: "white 1.5px 1.5px",
+            boxShadow: "white 1.5px 1.5px",
+          }}
+        >
+          <Button onClick={addToCart} href="#">
+            Add To Cart
+          </Button>
+        </motion.div>
       </Card.Body>
     </Card>
   );
