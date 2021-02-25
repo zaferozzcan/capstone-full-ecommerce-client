@@ -15,7 +15,7 @@ export default function Orders() {
         }`,
       });
 
-      setPastOrders(response.data);
+      setPastOrders(response.data.reverse());
     };
     getPastOrders();
   }, []);

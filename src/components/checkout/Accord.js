@@ -25,7 +25,9 @@ export default function Accord() {
 
       <h4 className="Accord-heading">
         {cart.length >= 1 ? (
-          <h2>Checkout your {cart.length} item</h2>
+          <h2>
+            Checkout your {cart.length} {cart.length === 1 ? "Item" : "Items"}
+          </h2>
         ) : (
           <h2>You don't have any item in your cart</h2>
         )}

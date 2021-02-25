@@ -11,7 +11,7 @@ export default function Subtotal() {
     <div className="subtotal-container">
       <p>
         Subtotal of {cart.length} {cart.length === 1 ? "item" : "items"}
-        <strong>{` $${total}`}</strong>
+        <strong>{` $${total.toFixed(2)}`}</strong>
       </p>
       <small className="gift">
         <input type="checkbox" />

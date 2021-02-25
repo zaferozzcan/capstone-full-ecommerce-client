@@ -11,7 +11,7 @@ export default function Checkout() {
     <>
       <div className="checkout-banner">
         {user ? (
-          <h1 style={{ color: "white" }}>Thanks for your business</h1>
+          <h1 style={{ color: "white" }}>Review Your Items</h1>
         ) : (
           <h1>Sign Up for Our Credit Cart to Get 10% Off!</h1>
         )}

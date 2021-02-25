@@ -29,33 +29,44 @@ export default function Item(props) {
     //     Add To Cart
     //   </button>
     // </div>
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={props.image} />
-      <Card.Body>
-        <Card.Text>{props.title}</Card.Text>
-        <Card.Title>${props.price}</Card.Title>
-        {/* </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroupItem>Cras justo odio</ListGroupItem>
-        <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-        <ListGroupItem>Vestibulum at eros</ListGroupItem>
-      </ListGroup>
-      <Card.Body> */}
+    <div style={{ borderRadius: "10px" }}>
+      <Card style={{ width: "18rem" }}>
         <motion.div
-          style={{ size: "content" }}
-          whileTap={{
-            scale: 1.4,
-            textShadow: "white 1.5px 1px",
-            boxShadow: "white 1.5px 1px",
+          whileHover={{
+            scale: 1.8,
+            transition: {
+              stiffness: 0,
+            },
           }}
-          transition={{ stiffness: 300 }}
         >
-          <Button onClick={addToCart} href="#">
-            Add To Cart
-          </Button>
+          <Card.Img variant="top" src={props.image} />
         </motion.div>
-      </Card.Body>
-    </Card>
+        <Card.Body>
+          <Card.Text>{props.title}</Card.Text>
+          <Card.Title>${props.price}</Card.Title>
+          {/* </Card.Body>
+      <ListGroup className="list-group-flush">
+      <ListGroupItem>Cras justo odio</ListGroupItem>
+      <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+      <ListGroupItem>Vestibulum at eros</ListGroupItem>
+      </ListGroup>
+    <Card.Body> */}
+          <motion.div
+            style={{ size: "content" }}
+            whileTap={{
+              scale: 1.3,
+              textShadow: "white 1.5px 1px",
+              boxShadow: "white 1.5px 1px",
+            }}
+            transition={{ stiffness: 300 }}
+          >
+            <Button onClick={addToCart} href="#">
+              Add To Cart
+            </Button>
+          </motion.div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

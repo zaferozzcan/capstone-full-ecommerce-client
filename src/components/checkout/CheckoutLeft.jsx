@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AiOutlineShopping } from "react-icons/ai";
 import { useStateValue } from "../../Providers/StateProvider";
 import { auth } from "../../firebase";
@@ -19,9 +20,14 @@ export default function CheckoutLeft() {
     <div className="checkout-left">
       <h2>Hello, {user && user.email}</h2>
       {cart && cart.length ? (
-        <h3 className="checkout-header">Checkout Your Items</h3>
+        <h3 className="checkout-header">
+          Checkout Your {cart.length === 1 ? "Item" : "Items"}
+        </h3>
       ) : (
-        <h3>Your Card Is Empty</h3>
+        <>
+          <h3>Your Card Is Empty</h3>
+          <Link to={"/"}>Continue Shopping</Link>
+        </>
       )}
       {cart.map((item, index) => {
         return (
